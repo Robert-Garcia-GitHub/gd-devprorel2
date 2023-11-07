@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>GDICOE Embed IFrame</masterLabel>    
+    <description>Embeds IFrame in Page</description>    
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="srcAttribute" type="String" label="Source URL" default="https://groupedeschenes.com/"/>
+            <property name="widthAttribute" type="String" label="Embed width" default="600"/>
+            <property name="heightAttribute" type="String" label="Embed height" default="450"/>
+            <property name="divAlignment" type="String" label="IFrame alignment" datasource="left,center,right" default="center"/>            
+            <property name="appendQueryString" type="Boolean" label="Append query string with user data"  default="false"/>
+            <property name="orderCheck" type="String" label="User order check type" datasource="year-range,specific-month" default="year-range"/>            
+            <property name="yearRange" type="Integer" min="1" max="10" label="User order check: year range (1-10)" default="3"/>
+            <property name="specificMonth" type="Integer" min="1" max="12" label="User order check: specific month (1-12)" default="12"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

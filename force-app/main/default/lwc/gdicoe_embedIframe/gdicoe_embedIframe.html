@@ -1,0 +1,20 @@
+<template>
+  <template if:true={iframeReady}>
+    <div style={_divStyle}>
+      <iframe
+        src={_iframeSrc}
+        width={widthAttribute}
+        height={heightAttribute}
+        style="border: 0"
+        allowfullscreen=""
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </div>
+  </template>
+  <template if:false={iframeReady}>
+    <div style={_divStyle}>
+      <p>...</p>
+    </div>
+  </template>
+</template>
