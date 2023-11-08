@@ -4,7 +4,6 @@ import getUserId from "@salesforce/apex/gdicoe_embedIframeHelper.getUserId";
 import getUserName from "@salesforce/apex/gdicoe_embedIframeHelper.getUserName";
 import getUserEmail from "@salesforce/apex/gdicoe_embedIframeHelper.getUserEmail";
 import getName from "@salesforce/apex/gdicoe_embedIframeHelper.getName";
-import getAccountId from "@salesforce/apex/gdicoe_embedIframeHelper.getAccountId";
 import getAccountExternalId from "@salesforce/apex/gdicoe_embedIframeHelper.getAccountExternalId";
 
 import communityId from "@salesforce/community/Id";
@@ -56,22 +55,27 @@ export default class gdicoe_embedIframe extends LightningElement {
   }
 
   async getQsId() {
+    // get the user id
     this.qsId = await getUserId();
   }
 
   async getQsName() {
+    // get the user's name
     this.qsName = await getName();
   }
 
   async getQsUserName() {
+    // get the user's username
     this.qsUserName = await getUserName();
   }
 
   async getQsEmail() {
+    // get the user's email address
     this.qsEmail = await getUserEmail();
   }
 
   async getQsAccount() {
+    // get the user's account external ID
     this.qsAccount = await getAccountExternalId();
   }
 
