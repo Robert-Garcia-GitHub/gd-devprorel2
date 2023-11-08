@@ -1,0 +1,102 @@
+Cookie Translation Name,Cookie Name,Language,Description
+__Secure-has-sid fr-CA,__Secure-has-sid,fr-CA,Détecte l’état de connexion d’un utilisateur dans LWR Experience côté client. Défini lors de la connexion à LWR Experience. Ne définissez jamais ce cookie sur HttpOnly.
+{UserId}_spring_KmMlAnyoneDraftArticlesList fr-CA,{UserId}_spring_KmMlAnyoneDraftArticlesList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page pour la vue Brouillon d'articles dans la gestion des articles."
+{UserId}_spring_KmMlArchivedArticlesList fr-CA,{UserId}_spring_KmMlArchivedArticlesList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page des « Articles archivés » dans la gestion des articles."
+{UserId}_spring_KmMlMyDraftArticlesList fr-CA,{UserId}_spring_KmMlMyDraftArticlesList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page des « Articles brouillons » attribués à « Moi » dans la gestion des articles."
+{UserId}_spring_KmMlMyDraftTranslationsList fr-CA,{UserId}_spring_KmMlMyDraftTranslationsList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page pour les « Traductions brouillon » dans la gestion des articles."
+{UserId}_spring_KmMlPublishedArticlesList fr-CA,{UserId}_spring_KmMlPublishedArticlesList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page des « Articles publiés » dans la gestion des articles."
+{UserId}_spring_KmMlPublishedTranslationsList fr-CA,{UserId}_spring_KmMlPublishedTranslationsList,fr-CA,"Dans Salesforce Classic, utilisé pour configurer les propriétés de mise en page pour les « Traductions publiées » dans la gestion des articles."
+<namespace>_sid fr-CA,<namespace>_sid,fr-CA,Identifie une session Live Agent. Stocke un identifiant pseudonyme unique pour une session de navigateur spécifique via le service de chat.
+52609e00b7ee307e fr-CA,52609e00b7ee307e,fr-CA,Cookie d’empreinte digitale du navigateur. Utilisé pour détecter les problèmes de sécurité de session.
+79eb100099b9a8bf fr-CA,79eb100099b9a8bf,fr-CA,Cookie de déclenchement d’empreinte digitale du navigateur. Utilisé pour détecter les problèmes de sécurité de session.
+apex__EmailAddress fr-CA,apex__EmailAddress,fr-CA,Met en cache les identifiants de contact associés aux adresses e-mail.
+BAYEAX_BROWSER fr-CA,BAYEAX_BROWSER,fr-CA,Identifiez un navigateur unique abonné aux chaînes de streaming CometD.
+BrowserId fr-CA,BrowserId,fr-CA,Utilisé pour les protections de sécurité.
+BrowserId_sec fr-CA,BrowserId_sec,fr-CA,Utilisé pour les protections de sécurité.
+clientSrc fr-CA,clientSrc,fr-CA,Utilisé pour les protections de sécurité.
+communityId fr-CA,communityId,fr-CA,Cookie défini pour lier les idées à un site Experience Cloud spécifique.
+CookieConsent fr-CA,CookieConsent,fr-CA,"Utilisé pour appliquer les préférences de consentement des utilisateurs finaux en matière de cookies. Stocke un booléen indiquant si l'utilisateur a consenti aux options de politique en matière de cookies proposées par le site. Sans ce cookie, les clients ne pourraient pas recueillir le consentement de leurs utilisateurs finaux."
+CookieConsentPolicy fr-CA,CookieConsentPolicy,fr-CA,Utilisé pour appliquer les préférences de consentement aux cookies de l'utilisateur final définies par notre utilitaire côté client.
+cookieSettingVerified fr-CA,cookieSettingVerified,fr-CA,Utilisé pour créer un message contextuel indiquant aux utilisateurs que les cookies sont requis.
+cordovaVersion fr-CA,cordovaVersion,fr-CA,Utilisé pour les diagnostics internes avec des applications mobiles.
+csssid fr-CA,csssid,fr-CA,Utilisé pour établir un contexte de demande dans l’organisation client appropriée.
+csssid_Client fr-CA,csssid_Client,fr-CA,Permet le changement d'utilisateur.
+devOverrideCsrfToken fr-CA,devOverrideCsrfToken,fr-CA,Jeton CSRF.
+dialpadShown fr-CA,dialpadShown,fr-CA,Utilisé dans la fonctionnalité essentielle d'Open CTI pour déterminer le focus du clavier de numérotation.
+disco fr-CA,disco,fr-CA,"Suit la dernière connexion utilisateur et la session active pour contourner la connexion (par exemple, flux immédiat OAuth)."
+FedAuth fr-CA,FedAuth,fr-CA,"Pour le connecteur SharePoint, utilisé pour s'authentifier auprès du site de niveau supérieur dans SharePoint."
+force-proxy-stream fr-CA,force-proxy-stream,fr-CA,Garantit que les requêtes des clients atteignent les mêmes hôtes proxy et sont plus susceptibles de récupérer le contenu du cache.
+force-stream fr-CA,force-stream,fr-CA,Utilisé pour rediriger les requêtes du serveur pour les sessions persistantes.
+gTalkCollapsed fr-CA,gTalkCollapsed,fr-CA,Contrôle si la barre latérale dans Salesforce Classic est ouverte ou non pour un utilisateur.
+guest_uuid_essential_<15-char SiteID> fr-CA,guest_uuid_essential_<15-char SiteID>,fr-CA,Fournit un ID unique pour les utilisateurs invités dans les sites Experience Cloud. Expire un an après la dernière visite de l’utilisateur sur le site.
+idccsrf fr-CA,idccsrf,fr-CA,Suit la validation CrossSiteRequestForgery pour certains flux SSO.
+inst fr-CA,inst,fr-CA,"Utilisé pour rediriger les requêtes vers une instance lorsque les signets et les URL codées en dur envoient des requêtes à une autre instance. Ce type de redirection peut se produire après une migration d'organisation, une scission ou après toute mise à jour d'URL."
+language fr-CA,language,fr-CA,"Identifie la langue des composants personnalisés, des enquêtes et des flux, qui prennent en charge plusieurs langues. Sans ce cookie, les traductions des fonctionnalités personnalisées peuvent s'afficher de manière incorrecte."
+lastActivePage fr-CA,lastActivePage,fr-CA,"Utilisé dans les fonctionnalités essentielles d'Open CTI, telles que la détermination si CTI doit afficher l'objet d'appel actuel."
+lastCallObjectId fr-CA,lastCallObjectId,fr-CA,"Utilisé dans les fonctionnalités essentielles d'Open CTI, telles que la détermination si CTI doit afficher l'objet d'appel actuel."
+lastlist fr-CA,lastlist,fr-CA,Utilisé pour stocker le nom du cookie pour la dernière URL de la liste.
+liveagent_sid fr-CA,liveagent_sid,fr-CA,Identifie une session Live Agent. Stocke un identifiant pseudonyme unique pour une session de navigateur spécifique via le service de chat.
+lloopch_loid fr-CA,lloopch_loid,fr-CA,Détermine s’il faut envoyer l’utilisateur vers une connexion au portail spécifique ou vers une connexion à une application.
+oid fr-CA,oid,fr-CA,Stocke la dernière organisation connectée pour rediriger les demandes. Utilisé pour enregistrer si le cookie est présent dans les demandes des utilisateurs invités du site et de la communauté.
+pctrk fr-CA,pctrk,fr-CA,Utilisé pour suivre les visiteurs uniques des pages dans les expériences.
+PicassoLanguage fr-CA,PicassoLanguage,fr-CA,Utilisé pour stocker la sélection de langue d’un utilisateur pour ce site Experience Builder. Le site ne se charge pas sans ce cookie si l'utilisateur change la langue du site.
+promptTestMod fr-CA,promptTestMod,fr-CA,Stocke si le mode test est en vigueur. Ce cookie est en lecture seule.
+renderCtx fr-CA,renderCtx,fr-CA,"Utilisé pour stocker les paramètres du site dans la session afin de les réutiliser entre les requêtes d'un seul client pour des raisons de fonctionnalité et de performances. Métadonnées requises pour récupérer les pages et les composants du site en fonction du pageId, du schéma, du viewType, du brandingSet, du formFactor et du ciblage d'audience."
+RRetURL fr-CA,RRetURL,fr-CA,Utilisé avec « Se connecter en tant que » pour restaurer l'état d'origine.
+RRetURL2 fr-CA,RRetURL2,fr-CA,L'URL de retour vers laquelle rediriger lors de la déconnexion d'une session.
+RSID fr-CA,RSID,fr-CA,"ID de session et identifiant de connexion en tant que session. Dans ce cas, les cookies sont copiés dans la réponse et provoquent la reconstruction appropriée de l'URL cible dans une situation de proxy. Les cookies ne sont pas créés, examinés ou modifiés."
+sfdc_lv2 fr-CA,sfdc_lv2,fr-CA,"Stocke les détails de confirmation d’identité pour les utilisateurs Experience Cloud. Si le cookie n'est pas défini ou s'il expire, les utilisateurs doivent répéter le processus de confirmation d'identité lors de leur prochaine connexion. La confirmation d'identité nécessite une méthode de vérification telle qu'un SMS, une application d'authentification ou une clé de sécurité."
+sfdc-stream fr-CA,sfdc-stream,fr-CA,Utilisé pour maintenir une session persistante (persistante) sur le domaine salesforce.com. S'assure que les demandes de streaming ultérieures sont transmises à la même instance de serveur que celle sur laquelle la demande d'abonnement au streaming a été initialement traitée.
+sid fr-CA,sid,fr-CA,ID de session.
+sid_Client fr-CA,sid_Client,fr-CA,Utilisé pour détecter et empêcher la falsification de session.
+sidebarPinned fr-CA,sidebarPinned,fr-CA,Contrôle l'état de la barre latérale Salesforce Classic.
+sitePreview fr-CA,sitePreview,fr-CA,Stocke le code d'authentification pour prévisualiser le site. Le mode aperçu ne se charge pas sans ce cookie.
+ssostartpage fr-CA,ssostartpage,fr-CA,Identifie l'emplacement du fournisseur d'identité (IdP) pour SSO ; certaines demandes SSO initiées par un fournisseur de services peuvent échouer sans ce cookie.
+SUCSP fr-CA,SUCSP,fr-CA,Utilisé lorsque l'identité d'utilisateur assumée par un administrateur (via la connexion à l'expérience en tant qu'utilisateur) est un utilisateur du Customer Success Portal (CSP).
+SUPRM fr-CA,SUPRM,fr-CA,Utilisé lorsque l'identité d'utilisateur qu'un administrateur assume (via Se connecter à l'expérience en tant que) est un utilisateur du portail Partner Relationship Management (PRM).
+useStandbyUrl fr-CA,useStandbyUrl,fr-CA,Contrôle la rapidité avec laquelle définir l'URL de veille lors du chargement du softphone.
+{UserId}_KMPage fr-CA,{UserId}_KMPage,fr-CA,"Dans Salesforce Classic, utilisé pour lire la dernière sélection de l'utilisateur pour « Rechercher dans la vue », « Langue de l'article », {DataCategory} et « Statut de validation » dans la gestion des articles."
+{UserId}_KnowledgePageDispatcher fr-CA,{UserId}_KnowledgePageDispatcher,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la sélection de l'utilisateur afin de déterminer s'il faut afficher la vue « Articles » ou « Mes brouillons » dans Knowledge."
+{UserId}_KnowledgePageFilter{DataCategory} fr-CA,{UserId}_KnowledgePageFilter{DataCategory},fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de catégorie de données dans Knowledge."
+{UserId}_KnowledgePageFilterArticleArticleType fr-CA,{UserId}_KnowledgePageFilterArticleArticleType,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de type d'article pour la vue « Articles » dans Knowledge."
+{UserId}_KnowledgePageFilterArticlePublishStatus fr-CA,{UserId}_KnowledgePageFilterArticlePublishStatus,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de statut de publication pour la vue « Articles » dans Knowledge."
+{UserId}_KnowledgePageFilterArticleValidationStatus fr-CA,{UserId}_KnowledgePageFilterArticleValidationStatus,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de statut de validation pour la vue « Articles » dans Knowledge."
+{UserId}_KnowledgePageFilterLanguage fr-CA,{UserId}_KnowledgePageFilterLanguage,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de langue dans Knowledge."
+{UserId}_KnowledgePageFilterMyDraftArticleType fr-CA,{UserId}_KnowledgePageFilterMyDraftArticleType,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de type d'article pour la vue « Mes brouillons » dans Knowledge."
+{UserId}_KnowledgePageFilterMyDraftPublishStatus fr-CA,{UserId}_KnowledgePageFilterMyDraftPublishStatus,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre de statut de publication pour la vue « Mes brouillons » dans Knowledge."
+{UserId}_KnowledgePageFilterMyDraftValidationStatus fr-CA,{UserId}_KnowledgePageFilterMyDraftValidationStatus,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour le filtre d'état de validation de la vue « Mes brouillons » dans Knowledge."
+{UserId}_KnowledgePageSortFieldArticle fr-CA,{UserId}_KnowledgePageSortFieldArticle,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour « Trier par » pour la vue « Articles » dans Knowledge."
+{UserId}_KnowledgePageSortFieldMyDraft fr-CA,{UserId}_KnowledgePageSortFieldMyDraft,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour « Trier par » pour la vue « Mes brouillons » dans Knowledge."
+activeView fr-CA,activeView,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser la dernière sélection de l'utilisateur pour l'onglet « Articles » ou « Traductions » dans la gestion des articles."
+AgentConsoleFE fr-CA,AgentConsoleFE,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser le style de page de la console de l'agent."
+AgentConsoleS fr-CA,AgentConsoleS,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser le style de page de la console de l'agent."
+AgentConsoleY fr-CA,AgentConsoleY,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser le style de page de la console de l'agent."
+AgentConsoleX fr-CA,AgentConsoleX,fr-CA,"Dans Salesforce Classic, utilisé pour mémoriser le style de page de la console de l'agent."
+autocomplete fr-CA,autocomplete,fr-CA,Détermine si la page de connexion mémorise le nom d'utilisateur de l'utilisateur.
+caPanelState fr-CA,caPanelState,fr-CA,"Enregistre les états d'ouverture, de fermeture et de pourcentage de hauteur du panneau de calendrier."
+hideDevelopmentTools fr-CA,hideDevelopmentTools,fr-CA,Utilisé pour déterminer s’il faut afficher les outils de développement.
+hideFilesWarningModal fr-CA,hideFilesWarningModal,fr-CA,Stocke l'accusé de réception de l'utilisateur selon lequel un lien public vers un fichier Salesforce figure lors de l'envoi d'un e-mail. La fenêtre d'avertissement ne s'affiche pas en permanence une fois que l'utilisateur a reconnu cette action.
+hideIdentityDialog fr-CA,hideIdentityDialog,fr-CA,Masque la boîte de dialogue qui informe que l'utilisateur actuel est déconnecté lors du passage à un autre utilisateur.
+ideaToggle fr-CA,ideaToggle,fr-CA,Afficher la vue de liste « Idées » ou la vue de liste « Flux ».
+iotcontextsplashdisable fr-CA,iotcontextsplashdisable,fr-CA,"Pour le produit IoT, stocke les préférences de l'utilisateur quant à l'affichage ou non de la fenêtre contextuelle Context Splash."
+login fr-CA,login,fr-CA,"Si la session de l'utilisateur a expiré, utilisé pour récupérer le nom d'utilisateur et le renseigner sur la page de connexion principale lors de l'utilisation de l'application de création de processus."
+logouturl fr-CA,logouturl,fr-CA,Stocke la dernière organisation connectée pour rediriger les demandes. Utilisé pour enregistrer si le cookie est présent dans les demandes des utilisateurs invités du site et de la communauté.
+pc-unit fr-CA,pc-unit,fr-CA,Définit une préférence pour l'affichage des unités de cache de plate-forme sur Mo ou Ko.
+PicassoViewMode fr-CA,PicassoViewMode,fr-CA,Stocke la sélection du mode d’affichage d’un utilisateur pour ce site Experience Builder.
+PreferredLanguage<18-char SiteID> fr-CA,PreferredLanguage<18-char SiteID>,fr-CA,Utilisé pour stocker la préférence de langue de l'utilisateur pour la détection de la langue et l'expérience utilisateur localisée dans les sites LWR. Utilisé pour stocker la préférence de langue de l'utilisateur pour la détection de la langue et l'expérience utilisateur localisée dans les sites LWR.
+redirectionWarning fr-CA,redirectionWarning,fr-CA,Permet au client de stocker les URL qui sont exemptées de la définition d'une page interstitielle d'avertissement de redirection sur une liste verte.
+showNewBuilderWarningMessage fr-CA,showNewBuilderWarningMessage,fr-CA,Utilisé pour afficher ou masquer un message d'avertissement pour le nouveau générateur de tableau de bord.
+waveUserPrefFinderLeftNav fr-CA,waveUserPrefFinderLeftNav,fr-CA,Préférence pour l'interface utilisateur de navigation à gauche dans CRM Analytics.
+waveUserPrefFinderListView fr-CA,waveUserPrefFinderListView,fr-CA,Préférence pour l'affichage des vues de liste dans CRM Analytics.
+WelcomePanel fr-CA,WelcomePanel,fr-CA,Stocke les préférences Experience Cloud.
+_ga fr-CA,_ga,fr-CA,Un cookie tiers utilisé si l'administrateur du site choisit de suivre les utilisateurs du site avec un identifiant de suivi Google Analytics.
+<userId>expid_[site prefix] fr-CA,<userId>expid_[site prefix],fr-CA,Utilisé pour afficher les pages en fonction de la marque spécifiée.
+alohaEpt fr-CA,alohaEpt,fr-CA,Utilisé pour calculer ExperiencePageTime sur les pages Salesforce Classic.
+auraBrokenDefGraph fr-CA,auraBrokenDefGraph,fr-CA,Utilisé pour suivre lorsqu'une page Lightning contient du code HTML mal formé.
+calViewState fr-CA,calViewState,fr-CA,Définit l'état de la date du calendrier en ligne dans Salesforce Classic (semaine en cours sélectionnée).
+cqcid fr-CA,cqcid,fr-CA,Utilisé pour suivre l'activité de navigation d'un acheteur invité.
+liveagent_invite_rejected_ fr-CA,liveagent_invite_rejected_,fr-CA,Demande à Live Agent de ne pas réémettre une invitation sur le même domaine. La suppression de ce cookie dégrade l'expérience client car ils peuvent recevoir des invitations répétées.
+oinfo fr-CA,oinfo,fr-CA,Suit la dernière organisation connectée.
+schgtclose fr-CA,schgtclose,fr-CA,"Fonctionnalité obsolète, non utilisée."
+t fr-CA,t,fr-CA,Utilisé pour éviter les contrôles d'accès en double.
+webact fr-CA,webact,fr-CA,Utilisé pour collecter des métriques par page vue à des fins de personnalisation.

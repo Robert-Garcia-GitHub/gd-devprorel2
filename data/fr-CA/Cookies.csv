@@ -1,0 +1,102 @@
+Cookie Name,Cookie Consent Category,Description
+__Secure-has-sid,1. Required,Detects a user’s login state in LWR Experience on the client side. Set during login to LWR Experience. Never set this cookie to HttpOnly.
+{UserId}_spring_KmMlAnyoneDraftArticlesList,1. Required,"In Salesforce Classic, used to configure layout properties for the Draft Articles view in Article Management."
+{UserId}_spring_KmMlArchivedArticlesList,1. Required,"In Salesforce Classic, used to configure layout properties for 'Archived Articles' in Article Management."
+{UserId}_spring_KmMlMyDraftArticlesList,1. Required,"In Salesforce Classic, used to configure layout properties for 'Draft Articles' assigned to 'Me' in Article Management."
+{UserId}_spring_KmMlMyDraftTranslationsList,1. Required,"In Salesforce Classic, used to configure layout properties for 'Draft Translations' in Article Management."
+{UserId}_spring_KmMlPublishedArticlesList,1. Required,"In Salesforce Classic, used to configure layout properties for 'Published Articles' in Article Management."
+{UserId}_spring_KmMlPublishedTranslationsList,1. Required,"In Salesforce Classic, used to configure layout properties for 'Published Translations' in Article Management."
+<namespace>_sid,1. Required,Identifies a Live Agent session. Stores a unique pseudonymous ID for a specific browser session over chat service.
+52609e00b7ee307e,1. Required,Browser Fingerprint cookie. Used to detect session security problems.
+79eb100099b9a8bf,1. Required,Browser Fingerprint trigger cookie. Used to detect session security problems.
+apex__EmailAddress,1. Required,Caches contact IDs associated with email addresses.
+BAYEAX_BROWSER,1. Required,Identify a unique browser subscribed to CometD streaming channels.
+BrowserId,1. Required,Used for security protections.
+BrowserId_sec,1. Required,Used for security protections.
+clientSrc,1. Required,Used for security protections.
+communityId,1. Required,Cookie set to tie the ideas to a specific Experience Cloud site.
+CookieConsent,1. Required,"Used to apply end-user cookie consent preferences. Stores a Boolean for whether user has consented to the cookie policy options offered by the site. Without this cookie, customers would not be able collect consent from their end users."
+CookieConsentPolicy,1. Required,Used to apply end-user cookie consent preferences set by our client-side utility.
+cookieSettingVerified,1. Required,Used to create a popup message telling users that cookies are required.
+cordovaVersion,1. Required,Used for internal diagnostics with mobile applications.
+csssid,1. Required,Used to establish a request context in the correct tenant org.
+csssid_Client,1. Required,Enables user switching.
+devOverrideCsrfToken,1. Required,CSRF Token.
+dialpadShown,1. Required,Used in essential Open CTI functionality to determine the dial pad focus.
+disco,1. Required,"Tracks the last user login and active session for bypassing login (For example, OAuth immediate flow)."
+FedAuth,1. Required,"For the SharePoint connector, used to authenticate to the top-level site in SharePoint."
+force-proxy-stream,1. Required,Ensures that client requests hit the same proxy hosts and are more likely to retrieve content from cache.
+force-stream,1. Required,Used to redirect server requests for sticky sessions.
+gTalkCollapsed,1. Required,Controls whether the sidebar in Salesforce Classic is open or not for a user.
+guest_uuid_essential_<15-char SiteID>,1. Required,Provides a unique ID for guest users in Experience Cloud sites. Expires one year after the user’s last visit to the site.
+idccsrf,1. Required,Tracks CrossSiteRequestForgery validation for certain SSO flows.
+inst,1. Required,"Used to redirect requests to an instance when bookmarks and hardcoded URLs send requests to a different instance. This type of redirect can happen after an org migration, a split, or after any URL update."
+language,1. Required,"Identifies the language for custom components, surveys, and flows, which support multiple languages. Without this cookie, translations for custom features can appear incorrectly."
+lastActivePage,1. Required,"Used in essential Open CTI functionality, such as determining if CTI should screen pop the current call object."
+lastCallObjectId,1. Required,"Used in essential Open CTI functionality, such as determining if CTI should screen pop the current call object."
+lastlist,1. Required,Used to store the cookie name for the last list URL.
+liveagent_sid,1. Required,Identifies a Live Agent session. Stores a unique pseudonymous ID for a specific browser session over chat service.
+lloopch_loid,1. Required,Determines whether to send the user to a specific portal login or an app login.
+oid,1. Required,Stores the last logged in org for redirecting requests. Used for logging whether the cookie is present in site and community guest-user requests.
+pctrk,1. Required,Used to track unique page visitors in Experiences.
+PicassoLanguage,1. Required,Used to store a user’s language selection for this Experience Builder site. The site doesn’t load without this cookie if the user changes the site’s language.
+promptTestMod,1. Required,Stores whether test mode is in effect. This cookie is read-only.
+renderCtx,1. Required,"Used to store site parameters in the session for reuse across requests by a single client for functionality and performance reasons. Metadata required for fetching site pages and components based on pageId, schema, viewType, brandingSet, formFactor, and audience targeting."
+RRetURL,1. Required,Used with 'Log in As' to restore the original state.
+RRetURL2,1. Required,The return URL to redirect to when logging out of a session.
+RSID,1. Required,"Session ID and login-as session ID. In this case the cookies are copied to the response and cause the target URL to rebuild appropriately in a proxy situation. The cookies aren't created, examined, or modified."
+sfdc_lv2,1. Required,"Stores identity confirmation details for Experience Cloud users. If the cookie isn't set or it expires, users must repeat the identity confirmation process the next time that they log in. Identity confirmation requires a verification method such as SMS, an authenticator app, or a security key."
+sfdc-stream,1. Required,Used to maintain a sticky (persistent) session on the salesforce.com domain. Makes sure that subsequent streaming requests are forwarded to the same server instance where the streaming subscription request was originally handled.
+sid,1. Required,SessionID.
+sid_Client,1. Required,Used to detect and prevent session tampering.
+sidebarPinned,1. Required,Controls the state of the Salesforce Classic sidebar.
+sitePreview,1. Required,Stores the authentication code for previewing the site. Preview mode doesn’t load without this cookie.
+ssostartpage,1. Required,Identifies the Identity Provider (IdP) location for SSO; certain service provider initiated SSO requests can fail without this cookie.
+SUCSP,1. Required,Used when the user identity that an administrator is assuming (via Log in to Experience as User) is a Customer Success Portal (CSP) user.
+SUPRM,1. Required,Used when the user identity that an administrator is assuming (via Log in to Experience as) is a Partner Relationship Management (PRM) portal user.
+useStandbyUrl,1. Required,Controls how quickly to set the standby URL when loading the softphone.
+{UserId}_KMPage,2. Preferences,"In Salesforce Classic, used to read the last user selection for 'Find in View', 'Article Language', {DataCategory}, and 'Validation Status' in Article Management."
+{UserId}_KnowledgePageDispatcher,2. Preferences,"In Salesforce Classic, used to remember the user selection to determine whether to show 'Articles' or 'My Drafts' view in Knowledge."
+{UserId}_KnowledgePageFilter{DataCategory},2. Preferences,"In Salesforce Classic, used to remember the last user selection for the data category filter in Knowledge."
+{UserId}_KnowledgePageFilterArticleArticleType,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the article type filter for 'Articles' view in Knowledge."
+{UserId}_KnowledgePageFilterArticlePublishStatus,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the publish status filter for 'Articles' view in Knowledge."
+{UserId}_KnowledgePageFilterArticleValidationStatus,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the validation status filter for 'Articles' view in Knowledge."
+{UserId}_KnowledgePageFilterLanguage,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the language filter in Knowledge."
+{UserId}_KnowledgePageFilterMyDraftArticleType,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the article type filter for 'My Drafts' view in Knowledge."
+{UserId}_KnowledgePageFilterMyDraftPublishStatus,2. Preferences,"In Salesforce Classic, used to remember the last user selection for publish status filter for 'My Drafts' view in Knowledge."
+{UserId}_KnowledgePageFilterMyDraftValidationStatus,2. Preferences,"In Salesforce Classic, used to remember the last user selection for the validation status filter for 'My Drafts' view in Knowledge."
+{UserId}_KnowledgePageSortFieldArticle,2. Preferences,"In Salesforce Classic, used to remember the last user selection for 'Sort by' for the 'Articles' view in Knowledge."
+{UserId}_KnowledgePageSortFieldMyDraft,2. Preferences,"In Salesforce Classic, used to remember the last user selection for 'Sort by' for 'My Drafts' view in Knowledge."
+activeView,2. Preferences,"In Salesforce Classic, used to remember the last user selection for 'Articles' or 'Translations' tab in Article Management."
+AgentConsoleFE,2. Preferences,"In Salesforce Classic, used to remember the page style of the Agent Console."
+AgentConsoleS,2. Preferences,"In Salesforce Classic, used to remember the page style of the Agent Console."
+AgentConsoleY,2. Preferences,"In Salesforce Classic, used to remember the page style of the Agent Console."
+AgentConsoleX,2. Preferences,"In Salesforce Classic, used to remember the page style of the Agent Console."
+autocomplete,2. Preferences,Determines if the login page remembers the user's username.
+caPanelState,2. Preferences,"Saves the open, closed, and height percent states of the calendar panel."
+hideDevelopmentTools,2. Preferences,Used to determine whether to show the developer tools.
+hideFilesWarningModal,2. Preferences,Stores the user acknowledgment that a public link to a Salesforce file is on email send. The warning window isn't continually shown after the user acknowledges this action.
+hideIdentityDialog,2. Preferences,Hides the dialog box that informs that the current user is logged out when switching to another user.
+ideaToggle,2. Preferences,Show the 'Ideas' list view or the 'Feed' list view.
+iotcontextsplashdisable,2. Preferences,"For the IoT product, stores user preference of whether to show Context Splash popup."
+login,2. Preferences,"If the user’s session has expired, used to fetch the username and populate it on the main login page when using the process builder app."
+logouturl,2. Preferences,Stores the last logged in org for redirecting requests. Used for logging whether the cookie is present in site and community guest-user requests.
+pc-unit,2. Preferences,Sets a preference for displaying platform cache units to either MB or KB.
+PicassoViewMode,2. Preferences,Stores a user’s view mode selection for this Experience Builder site.
+PreferredLanguage<18-char SiteID>,2. Preferences,Used to store the user language preference for language detection and localized user experience in LWR sites. Used to store the user language preference for language detection and localized user experience in LWR sites.
+redirectionWarning,2. Preferences,Enables the customer to store URLs that are exempt from setting a redirect warning interstitial page on an allowlist.
+showNewBuilderWarningMessage,2. Preferences,Used to show or hide a warning message for the new dashboard builder.
+waveUserPrefFinderLeftNav,2. Preferences,Preference for left navigation UI in CRM Analytics.
+waveUserPrefFinderListView,2. Preferences,Preference for displaying list views in CRM Analytics.
+WelcomePanel,2. Preferences,Stores Experience Cloud preferences.
+_ga,3. Statistics,A third-party cookie that’s used if the site admin chooses to track site users with a Google Analytics tracking ID.
+<userId>expid_[site prefix],3. Statistics,Used to render pages based on specified brand.
+alohaEpt,3. Statistics,Used to calculate the ExperiencePageTime on Salesforce Classic pages.
+auraBrokenDefGraph,3. Statistics,Used to track when a Lightning page has malformed HTML.
+calViewState,3. Statistics,Sets the inline calendar date state in Salesforce Classic (current week selected).
+cqcid,3. Statistics,Used to track a guest shopper's browsing activity.
+liveagent_invite_rejected_,3. Statistics,Instructs Live Agent not to reissue an invitation on the same domain. Deletion of this cookie degrades customer experience as they can get repeated invitations.
+oinfo,3. Statistics,Tracks the last logged in org.
+schgtclose,3. Statistics,"Deprecated feature, not used."
+t,3. Statistics,Used to avoid duplicate access checks.
+webact,3. Statistics,Used to collect metrics per page view for personalization.
