@@ -1,0 +1,24 @@
+<template>
+  <span
+    data-displayuser-id="gdicoe-displayuser"
+    data-displayuser-userid={displayUserId}
+    data-displayuser-username={displayUserUsername}
+    data-displayuser-name={displayUserName}
+    data-displayuser-accountid={displayUserAccountId}
+    data-displayuser-accountexternalid={displayUserAccountExternalId}
+    data-displayuser-useremail={displayUserEmail}
+    data-displayuser-userhasorderhistory={displayUserHasOrderHistory}
+    data-displayuser-error={displayUserError}
+  ></span>
+  <template if:true={userDataVisible}>
+    <div class="slds-m-around_medium">
+      <p>User Id: {displayUserId}</p>
+      <p>Name: {displayUserName}</p>
+      <p>User Name: {displayUserUsername}</p>
+      <p>User Email: {displayUserEmail}</p>
+      <p>Account External Id: {displayUserAccountExternalId}</p>
+      <p>Has Order History: {displayUserHasOrderHistory}</p>
+      <p>Error: {displayUserError}</p>
+    </div>
+  </template>
+</template>
