@@ -1,11 +1,13 @@
 import { LightningElement, api, track } from "lwc";
 
+// import items from the helper class to look up user data
 import getUserId from "@salesforce/apex/gdicoe_embedIframeHelper.getUserId";
 import getUserName from "@salesforce/apex/gdicoe_embedIframeHelper.getUserName";
 import getUserEmail from "@salesforce/apex/gdicoe_embedIframeHelper.getUserEmail";
 import getName from "@salesforce/apex/gdicoe_embedIframeHelper.getName";
 import getAccountExternalId from "@salesforce/apex/gdicoe_embedIframeHelper.getAccountExternalId";
 
+// import items  we need to check the order history
 import communityId from "@salesforce/community/Id";
 import getOrderHistory from "@salesforce/apex/GDIB2B_OrderHistoryService.getOrderHistory";
 
@@ -54,31 +56,37 @@ export default class gdicoe_embedIframe extends LightningElement {
     this.checkIfOrders().then((result) => {});
   }
 
+  // load up the query string variable with the user's ID
   async getQsId() {
     // get the user id
     this.qsId = await getUserId();
   }
 
+  // load up the query string variable with the user's Name
   async getQsName() {
     // get the user's name
     this.qsName = await getName();
   }
 
+  // load up the query string variable with the user's username
   async getQsUserName() {
     // get the user's username
     this.qsUserName = await getUserName();
   }
-
+  
+  // load up the query string variable with the user's email address
   async getQsEmail() {
     // get the user's email address
     this.qsEmail = await getUserEmail();
   }
 
+  // load up the query string variable with the user's account external ID
   async getQsAccount() {
     // get the user's account external ID
     this.qsAccount = await getAccountExternalId();
   }
 
+  // check if the user has any order, based on the component's specified parameters
   async checkIfOrders() {
     // get today's date
     let today = new Date(),
@@ -251,6 +259,7 @@ export default class gdicoe_embedIframe extends LightningElement {
     return result;
   }
 
+  // update the component's iframe if we need to
   updateComponent() {
     // get source url for iframe
     let iframeSrc = this.srcAttribute;
@@ -258,6 +267,7 @@ export default class gdicoe_embedIframe extends LightningElement {
 
     // append query string to soruce url if checkbox set
     if (this.appendQueryString) {
+      // work out the query string to send
       querystring =
         "?error=" +
         this.qsError +
@@ -274,6 +284,7 @@ export default class gdicoe_embedIframe extends LightningElement {
         "&ordered=" +
         this.qsOrdered;
 
+      // append it to the iframe's url
       iframeSrc = iframeSrc + "?data=" + this.concealText(querystring);
     }
 
