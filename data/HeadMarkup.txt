@@ -1,0 +1,7 @@
+<script src="/rhi/resource/#############/cookieConsent"></script>
+<script src="/rhi/resource/#############/clientFingerprint"></script>
+<style>
+.cookiecon-content-container {
+  min-height: 350px !important;
+}
+</style>
