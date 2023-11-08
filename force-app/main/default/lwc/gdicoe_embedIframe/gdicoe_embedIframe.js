@@ -11,6 +11,9 @@ import getAccountExternalId from "@salesforce/apex/gdicoe_embedIframeHelper.getA
 import communityId from "@salesforce/community/Id";
 import getOrderHistory from "@salesforce/apex/GDIB2B_OrderHistoryService.getOrderHistory";
 
+// import static resources
+import embedImageSpinner from "@salesforce/resourceUrl/gdicoe_embedIframeSpinner";
+
 export default class gdicoe_embedIframe extends LightningElement {
   // properties that come from the Experience builder
   @api srcAttribute;
@@ -36,15 +39,20 @@ export default class gdicoe_embedIframe extends LightningElement {
   // property to indicate iframe is ready to be displayed
   @track iframeReady = false;
 
-  // properties used to set iframe alignment and source url
-  _divStyle = "";
-  _iframeSrc = "";
+  // properties that affect the iframe's display
+  @track _divStyle = "";
+  @track _spinnerUrl = "";
+  @track _iframeSrc = "";
 
   // properties used in order check
   _fromDate = "";
   _toDate = "";
 
   connectedCallback() {
+    // set the div's alignment and spinner image url
+    this._divStyle = "text-align: " + this.divAlignment;
+    this._spinnerUrl = embedImageSpinner;
+    
     // let's resolve the user information promises so all that data is ready before we display the iframe
     this.getQsId().then((result) => {});
     this.getQsName().then((result) => {});
@@ -73,7 +81,7 @@ export default class gdicoe_embedIframe extends LightningElement {
     // get the user's username
     this.qsUserName = await getUserName();
   }
-  
+
   // load up the query string variable with the user's email address
   async getQsEmail() {
     // get the user's email address
@@ -288,8 +296,7 @@ export default class gdicoe_embedIframe extends LightningElement {
       iframeSrc = iframeSrc + "?data=" + this.concealText(querystring);
     }
 
-    // set the alignment and source url of the iframe
-    this._divStyle = "text-align: " + this.divAlignment;
+    // set the source url of the iframe
     this._iframeSrc = iframeSrc;
 
     // indicate that iframe is ready to be displayed

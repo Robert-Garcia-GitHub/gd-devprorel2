@@ -8,5 +8,9 @@
 		<members>gdicoe_embedIframe</members>
 		<name>LightningComponentBundle</name>
 	</types>
+	<types>
+		<members>gdicoe_embedIframeSpinner</members>
+		<name>StaticResource</name>
+	</types>
 	<version>58.0</version>
 </Package>
