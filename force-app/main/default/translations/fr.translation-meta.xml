@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>Accepter</label>
+        <name>CookieConsent_Accept</name>
+    </customLabels>
+    <customLabels>
+        <label>Refuser</label>
+        <name>CookieConsent_Decline</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom</label>
+        <name>CookieConsent_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Description</label>
+        <name>CookieConsent_Description</name>
+    </customLabels>
+</Translations>
