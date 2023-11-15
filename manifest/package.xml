@@ -37,7 +37,14 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomLabels</name>
+		<name>CustomLabel</name>
+	</types>
+	<types>
+		<members>GDIB2B Primary User Profile</members>
+		<members>GDIB2B Registered User Profile</members>
+		<members>Réal Huot Profile</members>
+		<members>Flocor Profile</members>
+		<name>Profile</name>
 	</types>
 	<types>
 		<members>CookieConsentCategoryTranslation__c</members>
