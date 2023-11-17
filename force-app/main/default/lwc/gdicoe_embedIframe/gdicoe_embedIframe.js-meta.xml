@@ -15,9 +15,10 @@
             <property name="heightAttribute" type="String" label="Embed height" default="450"/>
             <property name="divAlignment" type="String" label="IFrame alignment" datasource="left,center,right" default="center"/>            
             <property name="appendQueryString" type="Boolean" label="Append query string with user data"  default="false"/>
-            <property name="orderCheck" type="String" label="User order check type" datasource="year-range,specific-month" default="year-range"/>            
+            <property name="orderCheck" type="String" label="User order check type" datasource="year-range,specific-month,yesterday-and-today,yesterday-and-today-in-month" default="year-range"/>            
             <property name="yearRange" type="Integer" min="1" max="10" label="User order check: year range (1-10)" default="3"/>
-            <property name="specificMonth" type="Integer" min="1" max="12" label="User order check: specific month (1-12)" default="12"/>
+            <property name="specificMonth" type="Integer" min="1" max="12" label="User order check: month value (1-12)" default="12"/>
+            <property name="debugIframeUrl" type="Boolean" label="Debug IFrame Url" default="false"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

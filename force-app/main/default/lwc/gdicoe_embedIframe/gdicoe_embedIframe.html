@@ -1,6 +1,17 @@
 <template>
-  <template if:true={iframeReady}>
+  <template if:true={_iframeReady}>
     <div style={_divStyle}>
+      <template if:true={_iframeDebug}>
+        <div style={_divStyle}>
+          User data = <strong>{_debugData}</strong>
+          <br />
+          IFrame URL = <strong>{_debugUrl}</strong>
+          <br />
+          Query string = <strong>{_debugQuery}</strong>
+          <br />
+          JSON result = <strong>{_debugJson}</strong>
+        </div>
+      </template>
       <iframe
         src={_iframeSrc}
         width={widthAttribute}
@@ -12,9 +23,9 @@
       </iframe>
     </div>
   </template>
-  <template if:false={iframeReady}>
+  <template if:false={_iframeReady}>
     <div style={_divStyle}>
-      <p><img alt="spin" src={_spinnerUrl}/></p>
+      <p><img alt="spin" src={_spinnerUrl} /></p>
     </div>
   </template>
 </template>
