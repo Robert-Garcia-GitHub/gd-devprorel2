@@ -49,6 +49,8 @@ export default class gdicoe_embedIframe extends LightningElement {
   qsEmail = "";
   qsAccountId = "";
   qsAccountExternalId = "";
+  qsFirstOrder = "";
+  qsLastOrder = "";
 
   // properties used in order check
   dateToday = new Date();
@@ -129,6 +131,15 @@ export default class gdicoe_embedIframe extends LightningElement {
         this.toDate = this.getDateStringFrom(year, month, day);
         break;
 
+      case "today-in-month":
+      case "today":
+        // we set up a range from yesterday to today
+        this.fromDate = this.getDateString(
+          this.getDateOffsetBy(this.dateToday)
+        );
+        this.toDate = this.getDateString(this.dateToday);
+        break;
+
       case "yesterday-and-today-in-month":
       case "yesterday-and-today":
         // we set up a range from yesterday to today
@@ -182,6 +193,17 @@ export default class gdicoe_embedIframe extends LightningElement {
           // we do, so we succeeded in finding an order in the given date range
           this.qsError = "no";
           this.qsOrdered = "yes";
+          // try to get the dates of the first and last order in the results
+          this.qsFirstOrder = "99999999";
+          this.qsLastOrder = "00000000";
+          for (let order of this.allOrders.OrderList) {
+            if (order.OrdDate > this.qsLastOrder) {
+              this.qsLastOrder = order.OrdDate;
+            }
+            if (order.OrdDate < this.qsFirstOrder) {
+              this.qsFirstOrder = order.OrdDate;
+            }
+          }
         } else {
           // we don't, so there may have been a problem getting the order data
           this.qsError = "yes";
@@ -201,7 +223,7 @@ export default class gdicoe_embedIframe extends LightningElement {
     // we found data, we just need to check that if matches a month if it was specified
     switch (this.orderCheck) {
       case "yesterday-and-today-in-month":
-      case "yesterday-and-today":
+      case "today-in-month":
         // check if we found an order
         if (this.qsError === "no" && this.qsOrdered === "yes") {
           // check if we're in the right month
@@ -357,6 +379,10 @@ export default class gdicoe_embedIframe extends LightningElement {
         this.fromDate +
         "&to=" +
         this.toDate +
+        "&first=" +
+        this.qsFirstOrder +
+        "&last=" +
+        this.qsLastOrder +
         "&check=" +
         this.orderCheck;
 
@@ -371,7 +397,7 @@ export default class gdicoe_embedIframe extends LightningElement {
     this._debugData = "[ " + this.qsUserData.replaceAll("\t", " | ") + " ]";
     this._debugUrl = this.srcAttribute;
     this._debugQuery = this.revealText(querystring);
-    this._debugJson = this.allOrders;
+    this._debugJson = JSON.stringify(this.allOrders);
     this._iframeReady = true;
   }
 }
