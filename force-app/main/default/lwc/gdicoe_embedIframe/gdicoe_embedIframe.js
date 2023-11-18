@@ -8,7 +8,7 @@ import communityId from "@salesforce/community/Id";
 import getOrderHistory from "@salesforce/apex/GDIB2B_OrderHistoryService.getOrderHistory";
 
 // import static resources
-import embedImageSpinner from "@salesforce/resourceUrl/gdicoe_embedIframeSpinner";
+import embedIframeSpinner from "@salesforce/resourceUrl/gdicoe_embedIframeSpinner";
 
 export default class gdicoe_embedIframe extends LightningElement {
   // properties that come from the Experience builder
@@ -21,6 +21,8 @@ export default class gdicoe_embedIframe extends LightningElement {
   @api yearRange;
   @api specificMonth;
   @api debugIframeUrl;
+  @api debugDateToday;
+  @api dateValue;
 
   // property to indicate iframe is ready to be displayed
   @track _iframeReady = false;
@@ -37,54 +39,88 @@ export default class gdicoe_embedIframe extends LightningElement {
   @track _debugQuery = "";
   @track _debugJson = "";
 
-  // properties to get user info for query string
-  qsUserData = "";
+  // current user's data
+  currentUserData = "";
 
-  // properties used to build query string
-  qsError = "no";
-  qsOrdered = "no";
-  qsUserId = "";
-  qsName = "";
-  qsUserName = "";
-  qsEmail = "";
-  qsAccountId = "";
-  qsAccountExternalId = "";
-  qsFirstOrder = "";
-  qsLastOrder = "";
+  // did an error occur when retrieving the order history
+  errorStatus = "no";
 
-  // properties used in order check
+  // was an order found, or did an error occur
+  orderedStatus = "no";
+
+  // user's data, parsed
+  userId = "";
+  userName = "";
+  userUsername = "";
+  userEmail = "";
+  userAccountId = "";
+  userAccountExternalId = "";
+
+  // records today's date, but may be explicitly set for debugging
   dateToday = new Date();
+
+  // range for order history check
   fromDate = "";
   toDate = "";
+
+  // order history data retrieved
   allOrders = "";
+
+  // date of order found in order history data
+  orderDate = "";
 
   connectedCallback() {
     // set the div's alignment and spinner image url
     this._divStyle = "text-align: " + this.divAlignment;
     this._iframeDebug = this.debugIframeUrl;
-    this._spinnerUrl = embedImageSpinner;
+    this._spinnerUrl = embedIframeSpinner;
+
+    // check if we're debugging by setting today's date explicitly
+    if (this.debugDateToday) {
+      // we are, set today's date as such
+      this.dateToday = this.getConvertedDate(this.dateValue);
+    }
 
     // let's resolve the user information promises so all that data is ready before we display the iframe
     this.getUserData().then((result) => {});
 
     // okay, now let's check if any desired orders are found, that will complete the iframe display
-    this.checkIfOrders().then((result) => {});
+    this.doOrderHistoryCheck().then((result) => {});
   }
 
+  // get the user's data as a tab-delimited string
   async getUserData() {
-    // get the user's data as a tab-delimited string
-    this.qsUserData = await getUserDataDelimited();
+    this.currentUserData = await getUserDataDelimited();
+  }
+
+  // parse string value yyyy/mm/dd into a date, returns today's date if string invalid
+  getConvertedDate(value) {
+    let result = new Date();
+    if (value.match(/^[0-9][0-9][0-9][0-9][/][0-9][0-9][/][0-9][0-9]$/)) {
+      let dateArray = this.dateValue.split("/");
+      result = new Date(
+        parseInt(dateArray[0], 10),
+        parseInt(dateArray[1], 10) - 1,
+        parseInt(dateArray[2], 10),
+        23,
+        59,
+        59
+      );
+    }
+    return result;
   }
 
   // pad day or month so they have two digits
-  padDayOrMonth(value) {
+  getPaddedDayOrMonth(value) {
     return value > 9 ? String(value) : "0" + String(value);
   }
 
   // get a date string in "YYYYMMDD" format given a year, month, and day
   getDateStringFrom(year, month, day) {
     let result =
-      String(year) + this.padDayOrMonth(month) + this.padDayOrMonth(day);
+      String(year) +
+      this.getPaddedDayOrMonth(month) +
+      this.getPaddedDayOrMonth(day);
 
     return result;
   }
@@ -106,16 +142,23 @@ export default class gdicoe_embedIframe extends LightningElement {
   }
 
   // check if the user has any order, based on the component's specified parameters
-  async checkIfOrders() {
+  async doOrderHistoryCheck() {
     // do requested order check
 
+    // parse today's date 
     let year = this.dateToday.getFullYear();
     let month = this.dateToday.getMonth() + 1;
     let day = this.dateToday.getDate();
 
     // set up reasonable from- and to-date values, based on order check selected
     switch (this.orderCheck) {
-      case "year-range":
+      case "in-current-year":
+        // we set up a range for the current year
+        this.fromDate = this.getDateStringFrom(year, 1, 1);
+        this.toDate = this.getDateString(this.dateToday);
+        break;
+
+      case "in-year-range":
         // we set up a range that spans years
         this.fromDate = this.getDateStringFrom(
           year - this.yearRange,
@@ -125,24 +168,26 @@ export default class gdicoe_embedIframe extends LightningElement {
         this.toDate = this.getDateString(this.dateToday);
         break;
 
-      case "specific-month":
-        // we set up a range from the beginning of the current month until today
+      case "in-current-month":
+      case "in-given-month":
+        // we set up a range from the beginning of the month until today
+        // (if needed, the given month check is done later)
         this.fromDate = this.getDateStringFrom(year, month, 1);
         this.toDate = this.getDateStringFrom(year, month, day);
         break;
 
-      case "today-in-month":
       case "today":
-        // we set up a range from yesterday to today
-        this.fromDate = this.getDateString(
-          this.getDateOffsetBy(this.dateToday)
-        );
+      case "today-in-given-month":
+        // we set up a range for today
+        // (if needed, the given month check is done later)
+        this.fromDate = this.getDateString(this.dateToday);
         this.toDate = this.getDateString(this.dateToday);
         break;
 
-      case "yesterday-and-today-in-month":
       case "yesterday-and-today":
+      case "yesterday-and-today-in-given-month":
         // we set up a range from yesterday to today
+        // (if needed, the given month check is done later)
         this.fromDate = this.getDateString(
           this.getDateOffsetBy(this.dateToday, -1)
         );
@@ -161,7 +206,7 @@ export default class gdicoe_embedIframe extends LightningElement {
         );
     }
 
-    // try to get orders for user
+    // try to get the latest order for the user
     try {
       // get the order history for the user, given the from- and to-date range
       this.allOrders = await getOrderHistory({
@@ -179,11 +224,14 @@ export default class gdicoe_embedIframe extends LightningElement {
       // examine the order data received
       if (this.allOrders.includes("Read timed out")) {
         // there was a timeout getting the order data
-        this.qsError = "yes";
-        this.qsOrdered = "read-timed-out";
+        this.errorStatus = "yes";
+        this.orderedStatus = "read-timed-out";
+      } else if (this.allOrders === '{"TotalRecords": "0"}') {
+        // no orders found, so user didn't place orders in the given range
+        this.errorStatus = "no";
+        this.orderedStatus = "no";
       } else if (
         !JSON.stringify(this.allOrders).startsWith("Error") &&
-        this.allOrders !== '{"TotalRecords": "0"}' &&
         this.allOrders.length
       ) {
         // there was actual order data, so we parse it
@@ -191,54 +239,43 @@ export default class gdicoe_embedIframe extends LightningElement {
         // check if we have at least one order in the order data
         if (this.allOrders.length !== 0 && this.allOrders.OrderList) {
           // we do, so we succeeded in finding an order in the given date range
-          this.qsError = "no";
-          this.qsOrdered = "yes";
-          // try to get the dates of the first and last order in the results
-          this.qsFirstOrder = "99999999";
-          this.qsLastOrder = "00000000";
+          this.errorStatus = "no";
+          this.orderedStatus = "yes";
+          // try to get the date of the order placed in the results
           for (let order of this.allOrders.OrderList) {
-            if (order.OrdDate > this.qsLastOrder) {
-              this.qsLastOrder = order.OrdDate;
-            }
-            if (order.OrdDate < this.qsFirstOrder) {
-              this.qsFirstOrder = order.OrdDate;
-            }
+            this.orderDate = order.OrdDate;
           }
         } else {
           // we don't, so there may have been a problem getting the order data
-          this.qsError = "yes";
-          this.qsOrdered = "order-history-failed";
+          this.errorStatus = "yes";
+          this.orderedStatus = "order-history-failed";
         }
       } else {
         // the order data wasn't as we expected it to be, so there may have been a problem getting the order data
-        this.qsError = "yes";
-        this.qsOrdered = "order-history-failed";
+        this.errorStatus = "yes";
+        this.orderedStatus = "order-history-failed";
       }
     } catch (e) {
       // something went wrong, indicate an unknown error occured
-      this.qsError = "yes";
-      this.qsOrdered = "unknown";
+      this.errorStatus = "yes";
+      this.orderedStatus = "unknown";
     }
 
     // we found data, we just need to check that if matches a month if it was specified
-    switch (this.orderCheck) {
-      case "yesterday-and-today-in-month":
-      case "today-in-month":
-        // check if we found an order
-        if (this.qsError === "no" && this.qsOrdered === "yes") {
-          // check if we're in the right month
-          if (this.dateToday.getMonth() + 1 !== this.specificMonth) {
-            // we're not, so override the order check and set it to "no"
-            this.ordered = "no";
-          }
+    if (this.orderCheck.indexOf("-given-month") >= 0) {
+      // check if we found an order
+      if (this.orderDate.length === 8) {
+        // check if order found is in the right month
+        if (
+          parseInt(this.orderDate.substring(4, 6), 10) !== this.specificMonth
+        ) {
+          // we're not, so override the order check and set it to "no"
+          this.orderedStatus = "no";
         }
-        break;
-
-      default:
-        break;
+      }
     }
 
-    this.updateComponent();
+    this.updateIframeComponent();
   }
 
   // reverse a string
@@ -339,15 +376,15 @@ export default class gdicoe_embedIframe extends LightningElement {
   }
 
   // update the component's iframe if we need to
-  updateComponent() {
+  updateIframeComponent() {
     // get user data in preparation for working out query string
-    let dataArray = this.qsUserData.split("\t");
-    this.qsUserId = dataArray[0];
-    this.qsName = dataArray[1];
-    this.qsUserName = dataArray[2];
-    this.qsEmail = dataArray[3];
-    this.qsAccountId = dataArray[4];
-    this.qsAccountExternalId = dataArray[5];
+    let dataArray = this.currentUserData.split("\t");
+    this.userId = dataArray[0];
+    this.userName = dataArray[1];
+    this.userUsername = dataArray[2];
+    this.userEmail = dataArray[3];
+    this.userAccountId = dataArray[4];
+    this.userAccountExternalId = dataArray[5];
 
     // get source url for iframe
     let iframeSrc = this.srcAttribute;
@@ -358,19 +395,19 @@ export default class gdicoe_embedIframe extends LightningElement {
       // work out the query string to send
       querystring =
         "?error=" +
-        this.qsError +
+        this.errorStatus +
         "&id=" +
-        this.qsUserId +
+        this.userId +
         "&name=" +
-        this.qsName +
+        this.userName +
         "&user=" +
-        this.qsUserName +
+        this.userUsername +
         "&email=" +
-        this.qsEmail +
+        this.userEmail +
         "&account=" +
-        this.qsAccountExternalId +
+        this.userAccountExternalId +
         "&ordered=" +
-        this.qsOrdered +
+        this.orderedStatus +
         "&community=" +
         communityId +
         "&today=" +
@@ -379,12 +416,16 @@ export default class gdicoe_embedIframe extends LightningElement {
         this.fromDate +
         "&to=" +
         this.toDate +
-        "&first=" +
-        this.qsFirstOrder +
-        "&last=" +
-        this.qsLastOrder +
+        "&found=" +
+        this.orderDate +
         "&check=" +
-        this.orderCheck;
+        this.orderCheck +
+        (this.orderCheck.indexOf("-given-month") >= 0
+          ? "&month=" + this.specificMonth
+          : "") +
+        (this.orderCheck.indexOf("year-") >= 0
+          ? "&years=" + this.yearRange
+          : "");
 
       // append it to the iframe's url
       iframeSrc = iframeSrc + "?data=" + this.concealText(querystring);
@@ -394,7 +435,8 @@ export default class gdicoe_embedIframe extends LightningElement {
     this._iframeSrc = iframeSrc;
 
     // indicate that iframe is ready to be displayed
-    this._debugData = "[ " + this.qsUserData.replaceAll("\t", " | ") + " ]";
+    this._debugData =
+      "[ " + this.currentUserData.replaceAll("\t", " | ") + " ]";
     this._debugUrl = this.srcAttribute;
     this._debugQuery = this.revealText(querystring);
     this._debugJson = JSON.stringify(this.allOrders);
