@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>gdicoe_embedIframeHelper</members>
+		<members>gdicoe_embedIframeHelper_Test</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -11,6 +12,11 @@
 	<types>
 		<members>gdicoe_embedIframeSpinner</members>
 		<name>StaticResource</name>
+	</types>
+	<types>
+		<members>GDIB2B Primary User Profile</members>
+		<members>GDIB2B Registered User</members>
+		<name>Profile</name>
 	</types>
 	<version>58.0</version>
 </Package>
