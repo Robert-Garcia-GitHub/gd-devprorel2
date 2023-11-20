@@ -18,7 +18,7 @@
             <property name="orderCheck" type="String" label="User order check type" datasource="in-current-year,in-year-range,in-current-month,in-given-month,today,today-in-given-month,yesterday-and-today,yesterday-and-today-in-given-month" default="year-range"/>            
             <property name="yearRange" type="Integer" min="1" max="10" label="User order check: year range (1-10)" required="true" default="3"/>
             <property name="specificMonth" type="Integer" min="1" max="12" label="User order check: given month (1-12)" required="true" default="12"/>
-            <property name="debugIframeUrl" type="Boolean" label="Debug IFrame Url" default="false"/>
+            <property name="debugIframeUrl" type="Boolean" label="Debug IFrame" default="false"/>
             <property name="debugDateToday" type="Boolean" label="Debug using date as 'today'" default="false"/>
             <property name="dateValue" type="String" label="Date to use as 'today' (YYYY/MM/DD)" default=""/>
         </targetConfig>
