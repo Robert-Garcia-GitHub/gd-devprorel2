@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>gdicoe_CookieConsent_Accept</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>gdicoe_CookieConsent_Accept</shortDescription>
+        <value>Accept</value>
+    </labels>
+    <labels>
+        <fullName>gdicoe_CookieConsent_Decline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>gdicoe_CookieConsent_Decline</shortDescription>
+        <value>Decline</value>
+    </labels>
+    <labels>
+        <fullName>gdicoe_CookieConsent_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>gdicoe_CookieConsent_Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>gdicoe_CookieConsent_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>gdicoe_CookieConsent_Description</shortDescription>
+        <value>Description</value>
+    </labels>
+</CustomLabels>
