@@ -68,6 +68,7 @@ export default class gdicoe_embedIframe extends LightningElement {
 
   // date of order found in order history data
   orderDate = "";
+  itemExtAmount = "";
 
   connectedCallback() {
     // set the div's alignment and spinner image url
@@ -244,6 +245,7 @@ export default class gdicoe_embedIframe extends LightningElement {
           // try to get the date of the order placed in the results
           for (let order of this.allOrders.OrderList) {
             this.orderDate = order.OrdDate;
+            this.itemExtAmount = order.ItemExtAmt;
           }
         } else {
           // we don't, so there may have been a problem getting the order data
@@ -418,6 +420,8 @@ export default class gdicoe_embedIframe extends LightningElement {
         this.toDate +
         "&found=" +
         this.orderDate +
+        "&amount=" +
+        this.itemExtAmount +
         "&check=" +
         this.orderCheck +
         (this.orderCheck.indexOf("-given-month") >= 0
