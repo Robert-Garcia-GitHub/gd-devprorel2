@@ -7,75 +7,122 @@
           <div class="slds-size--1-of-1">
             <template if:true={loading}>
               <div class="cookiecon-spinner-container">
-                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                <lightning-spinner
+                  alternative-text="Loading"
+                  size="medium"
+                ></lightning-spinner>
               </div>
             </template>
             <template if:false={loading}>
               <ul class="slds-list--vertical">
-                <template for:each={cookieData} for:item="section" for:index="i">
-                  <li class="slds-item slds-box slds-box--border slds-has-bottom-magnet slds-has-top-magnet" key={section.i}>
+                <template
+                  for:each={cookieData}
+                  for:item="section"
+                  for:index="i"
+                >
+                  <li
+                    class="slds-item slds-box slds-box--border slds-has-bottom-magnet slds-has-top-magnet"
+                    key={section.i}
+                  >
                     <div class="slds-grid slds-wrap slds-p-around--small">
                       <div class="slds-size--1-of-1">
                         <div class="slds-grid slds-wrap">
-                          <div class="slds-size--9-of-12 slds-small-size--5-of-6 slds-medium-size--5-of-6 slds-large-size--5-of-6 slds-align-middle">
+                          <div
+                            class="slds-size--9-of-12 slds-small-size--5-of-6 slds-medium-size--5-of-6 slds-large-size--5-of-6 slds-align-middle"
+                          >
                             <div class="slds-grid slds-wrap">
                               <div class="slds-size--1-of-1">
                                 <div class="slds-grid">
                                   <template if:false={section.Mandatory}>
                                     <div class="slds-size--1-of-1">
-                                      <p class="slds-text-heading--small" style="font-weight:bold">
+                                      <p
+                                        class="slds-text-heading--small"
+                                        style="font-weight: bold"
+                                      >
                                         {section.SectionName}
                                       </p>
                                     </div>
                                   </template>
                                   <template if:true={section.Mandatory}>
                                     <div>
-                                      <p class="slds-text-heading--small cookiecon-mandatory-text">
+                                      <p
+                                        class="slds-text-heading--small cookiecon-mandatory-text"
+                                      >
                                         {section.SectionName}
                                       </p>
                                     </div>
                                     <div class="slds-p-left--xx-small">
-                                      <lightning-helptext content={section.AdditionalInformation}></lightning-helptext>
+                                      <lightning-helptext
+                                        content={section.AdditionalInformation}
+                                      ></lightning-helptext>
                                     </div>
                                   </template>
                                 </div>
                               </div>
-                              <div class="slds-size--1-of-1 cookiecon-desktop-section">
+                              <div
+                                class="slds-size--1-of-1 cookiecon-desktop-section"
+                              >
                                 <p class="slds-text-body--regular slds-wrap">
                                   {section.SectionDescription}
                                 </p>
                               </div>
                             </div>
                           </div>
-                          <div class="slds-size--3-of-12 slds-small-size--1-of-6 slds-medium-size--1-of-6 slds-large-size--1-of-6 slds-align--absolute-center"></div>
+                          <div
+                            class="slds-size--3-of-12 slds-small-size--1-of-6 slds-medium-size--1-of-6 slds-large-size--1-of-6 slds-align--absolute-center"
+                          ></div>
                         </div>
                       </div>
-                      <div class="slds-size--1-of-1 slds-align-middle cookiecon-mobile-section">
+                      <div
+                        class="slds-size--1-of-1 slds-align-middle cookiecon-mobile-section"
+                      >
                         <p class="slds-text-body--regular slds-wrap">
                           {section.SectionDescription}
                         </p>
                       </div>
                       <div class="slds-size--1-of-1 slds-p-top--small">
-                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-border--left slds-border--right">
+                        <table
+                          class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-border--left slds-border--right"
+                        >
                           <thead>
                             <tr class="slds-line-height_reset">
                               <th class="" scope="col">
-                                <div class="slds-truncate" title={nameLabel}>{nameLabel}</div>
+                                <div class="slds-truncate" title={nameLabel}>
+                                  {nameLabel}
+                                </div>
                               </th>
                               <th class="" scope="col">
-                                <div class="slds-truncate" title={descriptionLabel}>{descriptionLabel}</div>
+                                <div
+                                  class="slds-truncate"
+                                  title={descriptionLabel}
+                                >
+                                  {descriptionLabel}
+                                </div>
                               </th>
                             </tr>
                           </thead>
                           <tbody>
-                            <template for:each={section.SectionCookies} for:item="item" for:index="i">
+                            <template
+                              for:each={section.SectionCookies}
+                              for:item="item"
+                              for:index="i"
+                            >
                               <tr class="slds-hint-parent" key={item.i}>
-                                <th class="slds-cell-wrap word-wrap" data-label={nameLabel} scope="row" style="width:30%">
+                                <th
+                                  class="slds-cell-wrap word-wrap"
+                                  data-label={nameLabel}
+                                  scope="row"
+                                  style="width: 30%"
+                                >
                                   <p class="slds-hyphenate" title={nameLabel}>
                                     {item.Name}
                                   </p>
                                 </th>
-                                <td class="slds-cell-wrap slds-wrap cookiecon-word-wrap" data-label={nameLabel} style="width:70%">
+                                <td
+                                  class="slds-cell-wrap slds-wrap cookiecon-word-wrap"
+                                  data-label={nameLabel}
+                                  style="width: 70%"
+                                >
                                   <p class="slds-wrap" title={descriptionLabel}>
                                     {item.Description__c}
                                   </p>
@@ -95,25 +142,50 @@
         <template if:true={modalState}>
           <div class="slds-size--1-of-1">
             <template if:true={shouldIShowCookieDialog}>
-              <section role="dialog" tabindex="-1" class="slds-modal slds-slide-up-open" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+              <section
+                role="dialog"
+                tabindex="-1"
+                class="slds-modal slds-slide-up-open"
+                aria-labelledby="modal-heading-01"
+                aria-modal="true"
+                aria-describedby="modal-content-id-1"
+              >
                 <div class="slds-modal__container">
                   <header class="slds-modal__header">
-                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                    <h2
+                      id="modal-heading-01"
+                      class="slds-modal__title slds-hyphenate"
+                    >
                       {headingLabel}
                     </h2>
                   </header>
-                  <div class="slds-modal__content slds-p-around_medium cookiecon-content-container" id="modal-content-id-1">
+                  <div
+                    class="slds-modal__content slds-p-around_medium cookiecon-content-container"
+                    id="modal-content-id-1"
+                  >
                     <p class="slds-p-bottom--small">{instructions}</p>
                     <template if:true={loading}>
                       <div class="cookiecon-spinner-container">
-                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                        <lightning-spinner
+                          alternative-text="Loading"
+                          size="medium"
+                        ></lightning-spinner>
                       </div>
                     </template>
                     <template if:false={loading}>
                       <ul class="slds-list--vertical">
-                        <template for:each={cookieData} for:item="section" for:index="i">
-                          <li class="slds-item slds-box slds-box--border slds-has-bottom-magnet slds-has-top-magnet" key={section.i}>
-                            <div class="slds-grid slds-wrap slds-p-around--small">
+                        <template
+                          for:each={cookieData}
+                          for:item="section"
+                          for:index="i"
+                        >
+                          <li
+                            class="slds-item slds-box slds-box--border slds-has-bottom-magnet slds-has-top-magnet"
+                            key={section.i}
+                          >
+                            <div
+                              class="slds-grid slds-wrap slds-p-around--small"
+                            >
                               <div class="slds-size--1-of-1">
                                 <div class="slds-grid slds-wrap">
                                   <div
@@ -121,39 +193,59 @@
                                     data-value={section.SectionName}
                                     onclick={showSection}
                                   >
-                                    <lightning-icon icon-name={section.SectionIcon} size="small"></lightning-icon>
+                                    <lightning-icon
+                                      icon-name={section.SectionIcon}
+                                      size="small"
+                                    ></lightning-icon>
                                   </div>
-                                  <div class="slds-size--6-of-12 slds-small-size--4-of-6 slds-medium-size--4-of-6 slds-large-size--4-of-6 slds-align-middle">
+                                  <div
+                                    class="slds-size--6-of-12 slds-small-size--4-of-6 slds-medium-size--4-of-6 slds-large-size--4-of-6 slds-align-middle"
+                                  >
                                     <div class="slds-grid slds-wrap">
                                       <div class="slds-size--1-of-1">
                                         <div class="slds-grid">
-                                          <template if:false={section.Mandatory}>
+                                          <template
+                                            if:false={section.Mandatory}
+                                          >
                                             <div class="slds-size--1-of-1">
-                                              <p class="slds-text-heading--small" style="font-weight:bold">
+                                              <p
+                                                class="slds-text-heading--small"
+                                                style="font-weight: bold"
+                                              >
                                                 {section.SectionName}
                                               </p>
                                             </div>
                                           </template>
                                           <template if:true={section.Mandatory}>
                                             <div>
-                                              <p class="slds-text-heading--small cookiecon-mandatory-text">
+                                              <p
+                                                class="slds-text-heading--small cookiecon-mandatory-text"
+                                              >
                                                 {section.SectionName}
                                               </p>
                                             </div>
                                             <div class="slds-p-left--xx-small">
-                                              <lightning-helptext content={section.AdditionalInformation}></lightning-helptext>
+                                              <lightning-helptext
+                                                content={section.AdditionalInformation}
+                                              ></lightning-helptext>
                                             </div>
                                           </template>
                                         </div>
                                       </div>
-                                      <div class="slds-size--1-of-1 cookiecon-desktop-section">
-                                        <p class="slds-text-body--regular slds-wrap">
+                                      <div
+                                        class="slds-size--1-of-1 cookiecon-desktop-section"
+                                      >
+                                        <p
+                                          class="slds-text-body--regular slds-wrap"
+                                        >
                                           {section.SectionDescription}
                                         </p>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="slds-size--3-of-12 slds-small-size--1-of-6 slds-medium-size--1-of-6 slds-large-size--1-of-6 slds-align--absolute-center">
+                                  <div
+                                    class="slds-size--3-of-12 slds-small-size--1-of-6 slds-medium-size--1-of-6 slds-large-size--1-of-6 slds-align--absolute-center"
+                                  >
                                     <lightning-input
                                       type="toggle"
                                       name={section.RelatedAuthorizationFormId}
@@ -167,38 +259,72 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="slds-size--1-of-1 slds-align-middle cookiecon-mobile-section">
+                              <div
+                                class="slds-size--1-of-1 slds-align-middle cookiecon-mobile-section"
+                              >
                                 <p class="slds-text-body--regular slds-wrap">
                                   {section.SectionDescription}
                                 </p>
                               </div>
                               <template if:true={section.ShowSection}>
-                                <div class="slds-size--1-of-1 slds-p-top--small">
-                                  <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-border--left slds-border--right">
+                                <div
+                                  class="slds-size--1-of-1 slds-p-top--small"
+                                >
+                                  <table
+                                    class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-border--left slds-border--right"
+                                  >
                                     <thead>
                                       <tr class="slds-line-height_reset">
                                         <th class="" scope="col">
-                                          <div class="slds-truncate" title={nameLabel}>
+                                          <div
+                                            class="slds-truncate"
+                                            title={nameLabel}
+                                          >
                                             {nameLabel}
                                           </div>
                                         </th>
                                         <th class="" scope="col">
-                                          <div class="slds-truncate" title={descriptionLabel}>
+                                          <div
+                                            class="slds-truncate"
+                                            title={descriptionLabel}
+                                          >
                                             {descriptionLabel}
                                           </div>
                                         </th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <template for:each={section.SectionCookies} for:item="item" for:index="i">
-                                        <tr class="slds-hint-parent" key={item.i}>
-                                          <th class="slds-cell-wrap word-wrap" data-label={nameLabel} scope="row" style="width:30%">
-                                            <p class="slds-hyphenate" title={nameLabel}>
+                                      <template
+                                        for:each={section.SectionCookies}
+                                        for:item="item"
+                                        for:index="i"
+                                      >
+                                        <tr
+                                          class="slds-hint-parent"
+                                          key={item.i}
+                                        >
+                                          <th
+                                            class="slds-cell-wrap word-wrap"
+                                            data-label={nameLabel}
+                                            scope="row"
+                                            style="width: 30%"
+                                          >
+                                            <p
+                                              class="slds-hyphenate"
+                                              title={nameLabel}
+                                            >
                                               {item.Name}
                                             </p>
                                           </th>
-                                          <td class="slds-cell-wrap slds-wrap cookiecon-word-wrap" data-label={nameLabel} style="width:70%">
-                                            <p class="slds-wrap" title={descriptionLabel}>
+                                          <td
+                                            class="slds-cell-wrap slds-wrap cookiecon-word-wrap"
+                                            data-label={nameLabel}
+                                            style="width: 70%"
+                                          >
+                                            <p
+                                              class="slds-wrap"
+                                              title={descriptionLabel}
+                                            >
                                               {item.Description__c}
                                             </p>
                                           </td>
@@ -218,11 +344,23 @@
                     <div class="cookiecon-desktop-section">
                       <div class="slds-grid slds-grid--align-spread">
                         <div class="slds-col">
-                          <lightning-button class="slds-m-right--small" label={rejectButtonLabel} onclick={rejectCookies}></lightning-button>
+                          <lightning-button
+                            class="slds-m-right--small"
+                            label={rejectButtonLabel}
+                            onclick={rejectCookies}
+                          ></lightning-button>
                         </div>
                         <div class="slds-col">
-                          <lightning-button class="slds-m-right--small" label={informationButtonLabel} onclick={informationButtonSelected}></lightning-button>
-                          <lightning-button label={confirmButtonLabel} variant="brand" onclick={acceptCookies}></lightning-button>
+                          <lightning-button
+                            class="slds-m-right--small"
+                            label={informationButtonLabel}
+                            onclick={informationButtonSelected}
+                          ></lightning-button>
+                          <lightning-button
+                            label={confirmButtonLabel}
+                            variant="brand"
+                            onclick={acceptCookies}
+                          ></lightning-button>
                         </div>
                       </div>
                     </div>
@@ -230,21 +368,35 @@
                       <div class="slds-grid slds-wrap">
                         <div class="slds-size--1-of-1">
                           <div class="slds-p-around-xx-small">
-                            <button type="submit" class="slds-button slds-button_neutral slds-button_stretch" onclick={rejectCookies}>
+                            <button
+                              type="submit"
+                              class="slds-button slds-button_neutral slds-button_stretch"
+                              onclick={rejectCookies}
+                            >
                               {rejectButtonLabel}
                             </button>
                           </div>
                         </div>
                         <div class="slds-size--1-of-1 slds-p-top--small">
                           <div class="slds-p-around-xx-small">
-                            <button type="submit" class="slds-button slds-button_neutral slds-button_stretch" onclick={informationButtonSelected}>
+                            <button
+                              type="submit"
+                              class="slds-button slds-button_neutral slds-button_stretch"
+                              onclick={informationButtonSelected}
+                            >
                               {informationButtonLabel}
                             </button>
                           </div>
                         </div>
                         <div class="slds-size--1-of-1 slds-p-top--small">
                           <div class="slds-p-around-xx-small">
-                            <button type="submit" class="slds-button slds-button_brand slds-button_stretch" onclick={acceptCookies}>{confirmButtonLabel}</button>
+                            <button
+                              type="submit"
+                              class="slds-button slds-button_brand slds-button_stretch"
+                              onclick={acceptCookies}
+                            >
+                              {confirmButtonLabel}
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -257,13 +409,18 @@
           </div>
         </template>
         <template if:true={footerState}>
+          <template if:true={footerModalState}>
+            <div class="cookiecon-modal-background"></div>
+          </template>
           <div class="slds-grid slds-wrap cookiecon-full-width-container">
             <div class="slds-size--1-of-1">
               <div class={footerContainerClass} style={backgroundStyle}>
                 <div class="slds-grid slds-wrap">
                   <div class={footerContainerPadding}>
                     <div class="slds-grid slds-wrap">
-                      <div class="slds-size--1-of-1 slds-small-size--2-of-3 slds-medium-size--3-of-4 slds-large-size--3-of-4 ">
+                      <div
+                        class="slds-size--1-of-1 slds-small-size--2-of-3 slds-medium-size--3-of-4 slds-large-size--3-of-4"
+                      >
                         <div class="slds-grid slds-wrap slds-p-around--medium">
                           <div class="slds-size--1-of-1">
                             <h2 style={headingStyle}>{headingLabel}</h2>
@@ -271,33 +428,65 @@
                           <div class="slds-size--1-of-1 slds-p-top--small">
                             <p style={textStyle}>{instructions}</p>
                           </div>
-                          <div class=" slds-size--1-of-1 slds-p-top--small">
-                            <ul class="slds-list_horizontal slds-has-dividers_left">
+                          <div class="slds-size--1-of-1 slds-p-top--small">
+                            <ul
+                              class="slds-list_horizontal slds-has-dividers_left"
+                            >
                               <li class="slds-item">
-                                <p><a onclick={informationButtonSelected} style={linkStyle}>{informationButtonLabel}</a></p>
+                                <p>
+                                  <a
+                                    onclick={informationButtonSelected}
+                                    style={linkStyle}
+                                    >{informationButtonLabel}</a
+                                  >
+                                </p>
                               </li>
                               <li class="slds-item">
-                                <p><a onclick={cookiesButtonSelected} style={linkStyle}>{viewCookiesLabel}</a></p>
+                                <p>
+                                  <a
+                                    onclick={cookiesButtonSelected}
+                                    style={linkStyle}
+                                    >{viewCookiesLabel}</a
+                                  >
+                                </p>
                               </li>
                               <li class="slds-item">
-                                <p><a onclick={rejectCookies} style={linkStyle}>{rejectButtonLabel}</a></p>
+                                <p>
+                                  <a onclick={rejectCookies} style={linkStyle}
+                                    >{rejectButtonLabel}</a
+                                  >
+                                </p>
                               </li>
                             </ul>
                           </div>
                         </div>
                       </div>
-                      <div class="cookiecon-desktop-section slds-size--1-of-1 slds-small-size--1-of-3 slds-medium-size--1-of-4 slds-large-size--1-of-4 slds-align--absolute-center">
+                      <div
+                        class="cookiecon-desktop-section slds-size--1-of-1 slds-small-size--1-of-3 slds-medium-size--1-of-4 slds-large-size--1-of-4 slds-align--absolute-center"
+                      >
                         <div class="slds-p-around--medium">
                           <div class={footerButtonClass}>
                             <div class="slds-col">
-                              <button type="submit" class="slds-button slds-button_brand" onclick={acceptCookies}>{confirmButtonLabel}</button>
+                              <button
+                                type="submit"
+                                class="slds-button slds-button_brand"
+                                onclick={acceptCookies}
+                              >
+                                {confirmButtonLabel}
+                              </button>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="slds-size--1-of-1 cookiecon-mobile-section">
                         <div class="slds-p-around-xx-small">
-                          <button type="submit" class="slds-button slds-button_brand slds-button_stretch" onclick={acceptCookies}>{confirmButtonLabel}</button>
+                          <button
+                            type="submit"
+                            class="slds-button slds-button_brand slds-button_stretch"
+                            onclick={acceptCookies}
+                          >
+                            {confirmButtonLabel}
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -322,11 +511,14 @@
                       ></lightning-icon>
                     </div>
                     <div class="slds-size--11-of-12 slds-align-middle">
-                      <p style="font-size:.9rem;font-weight:bold">
+                      <p style="font-size: 0.9rem; font-weight: bold">
                         Experience Builder
                       </p>
-                      <p style="font-size:.9rem;">
-                        Due to the dynamic content in cookie consent do not display it by default, please select Preview in Builder in the components properties and refresh the page to display.
+                      <p style="font-size: 0.9rem">
+                        Due to the dynamic content in cookie consent do not
+                        display it by default, please select Preview in Builder
+                        in the components properties and refresh the page to
+                        display.
                       </p>
                     </div>
                   </div>
@@ -350,11 +542,11 @@
                       ></lightning-icon>
                     </div>
                     <div class="slds-size--11-of-12 slds-align-middle">
-                      <p style="font-size:.9rem;font-weight:bold">
-                        Error
-                      </p>
-                      <p style="font-size:.9rem;">
-                        We have been unable to verify a unique user from this browser - please ensure that the static resources have been configured correctly. 
+                      <p style="font-size: 0.9rem; font-weight: bold">Error</p>
+                      <p style="font-size: 0.9rem">
+                        We have been unable to verify a unique user from this
+                        browser - please ensure that the static resources have
+                        been configured correctly.
                       </p>
                     </div>
                   </div>

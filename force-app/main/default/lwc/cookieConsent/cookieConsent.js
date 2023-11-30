@@ -53,11 +53,6 @@ export default class CookieConsent extends LightningElement {
   error;
 
   connectedCallback() {
-    console.log(this.acceptLabel);
-    console.log(this.declineLabel);
-    console.log(this.nameLabel);
-    console.log(this.descriptionLabel);
-
     this.htmlLang= document.querySelector("html").lang;
     this.checkIfInPreview();
     if (this.useRelaxedCSP && !this.preview) {
@@ -114,9 +109,9 @@ export default class CookieConsent extends LightningElement {
 
   @api
   verifyBrowserIdWithUniqueId() {
-    verifyBrowserId({ browserId: this.uniqueId })
+        verifyBrowserId({ browserId: this.uniqueId })
       .then((data) => {
-        if (data === false) {
+                if (data === false) {
           this.getCookieSectionsAndData();
         } else if (this.displayType === "page") {
           this.getCookieSectionsAndData();
@@ -127,12 +122,12 @@ export default class CookieConsent extends LightningElement {
       })
       .catch((error) => {
         this.error = error.message;
-      });
+              });
   }
 
   @api
   getCookieSectionsAndData() {
-    console.log("getCookieSectiosAndData htmlLang = " + this.htmlLang);
+    console.log("getCookieSectionsAndData htmlLang = " + this.htmlLang);
     getCookieDataLang({htmlLang : this.htmlLang})
       .then((data) => {
         this.cookieData = [...data];
@@ -282,7 +277,11 @@ export default class CookieConsent extends LightningElement {
   }
 
   get footerState() {
-    return this.displayType === "footer" && this.showCookieDialog === true;
+    return (this.displayType === "footer" || this.displayType === "footer-modal" ) && this.showCookieDialog === true;
+  }
+
+  get footerModalState() {
+    return (this.displayType === "footer-modal" ) && this.showCookieDialog === true;
   }
 
   get modalState() {
