@@ -401,11 +401,11 @@ export default class gdicoe_embedIframe extends LightningElement {
         "&id=" +
         this.userId +
         "&name=" +
-        this.userName +
+        encodeURIComponent(this.userName) +
         "&user=" +
-        this.userUsername +
+        encodeURIComponent(this.userUsername) +
         "&email=" +
-        this.userEmail +
+        encodeURIComponent(this.userEmail) +
         "&account=" +
         this.userAccountExternalId +
         "&ordered=" +
