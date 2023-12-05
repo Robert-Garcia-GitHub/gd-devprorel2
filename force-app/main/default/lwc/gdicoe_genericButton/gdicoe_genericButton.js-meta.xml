@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>GDICOE Generic Button</masterLabel>    
+    <description>Displays a generic button</description>    
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="genericButton_displayText" type="String" label="Display text" default="Go to https://www.groupedeschenes.com/"/>
+            <property name="genericButton_fontSize" type="String" label="Font size (use 1em for default size)" default="1em"/>
+            <property name="genericButton_fontWeight" type="String" label="Font weight" datasource="normal,bold" default="normal"/>
+            <property name="genericButton_targetUrl" type="String" label="Target URL" default="https://www.groupedeschenes.com/"/>
+            <property name="genericButton_blankTarget" type="String" label="Open in new tab/window" datasource="yes,no" default="yes"/>
+            <property name="genericButton_buttonAlignment" type="String" label="Button alignment" datasource="left,center,right" default="center"/>
+            <property name="genericButton_buttonPadding" type="Integer" min="0" max="100" label="Padding around button (0 - 100)" default="15"/>
+            <property name="genericButton_buttonRadius" type="Integer" min="0" max="50" label="Radius for corners (0 - 50)" default="25"/>
+            <property name="genericButton_backgroundColor" type="Color" label="Background color" default="#007F7F"/>
+            <property name="genericButton_hoverColor" type="Color" label="Hover color" default="#00CFCF"/>
+            <property name="genericButton_textColor" type="Color" label="Text color" default="#FFFFFF"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
