@@ -189,7 +189,7 @@ public without sharing class CookieConsentServiceGuestHelper {
       key = translated.Name + ' ' + htmlLang;
       System.Debug('key for lookup = ' + key);
       if (translationMap.containsKey(key)) {
-        CookieConsentCategoryTranslation__c mapValue = translationMap.get(Key); 
+        CookieConsentCategoryTranslation__c mapValue = translationMap.get(Key);
         translated.Name = mapValue.Name__c;
         translated.Description__c = mapValue.Description__c;
         translated.AdditionalInformation__c = mapValue.AdditionalInformation__c;
@@ -335,5 +335,25 @@ public without sharing class CookieConsentServiceGuestHelper {
       return true;
     }
     return false;
+  }
+
+  /**
+   * getPrivacyPolicy will get the policy text
+   * @param policy - name of policy to retrieve
+   */
+  @auraEnabled
+  public static String getPrivacyPolicy(String policy) {
+    String result = '';
+
+    List<CookiePrivacyPolicy__c> policies = [
+      SELECT Content__c
+      FROM CookiePrivacyPolicy__c
+      WHERE Name = :policy
+      LIMIT 1
+    ];
+
+    result = (policies.size() == 1) ? policies.get(0).Content__c : 'n/a';
+
+    return result;
   }
 }

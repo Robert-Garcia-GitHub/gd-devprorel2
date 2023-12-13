@@ -13,16 +13,16 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
-            <property name="displayType" type="String" default="footer-fixed" datasource="footer,modal,page,footer-modal" label="Cookie Display Type"/>
+            <property name="displayType" type="String" default="footer-fixed" datasource="footer,modal,page,footer-modal,hybrid" label="Cookie Display Type"/>
             <property name="useRelaxedCSP" type="Boolean" label="Used Relaxed CSP" description="If selected, your component can only be used in a community that has Locker Service turned off"/>
             <property name="headingLabel" type="String" default="" label="Heading Label"/>
             <property name="instructions" type="String" default="" label="User Instructions"/>
             <property name="informationButtonLabel" type="String" default="" label="Information Button Label"/>
-            <property name="informationButtonLink" type="String" default="" label="User Information Button Link"/>
+            <property name="informationButtonLink" type="String" default="" label="User Information Button Link (ignored if 'hybrid' selected)"/>
             <property name="confirmButtonLabel" type="String" default="" label="Confirm Button Label"/>
             <property name="rejectButtonLabel" type="String" default="" label="Reject Button Label"/>
             <property name="viewCookiesLabel" type="String" default="" label="View Cookies Link Label"/>
-            <property name="viewCookiesLink" type="String" default="" label="View Cookies Link"/>
+            <property name="viewCookiesLink" type="String" default="" label="View Cookies Link (ignored if 'hybrid' selected)"/>
             <property name="cookieFooterRelative" type="Boolean" default="false" label="Used Relative Footer Positioning" description="If selected, the footer will be no longer be fixed to the window"/>
             <property name="cookieFooterPadding" type="String" default="small" datasource="xx-small, x-small, small, medium, large, none" label="Footer Padding"/>
             <property name="cookieFooterButtonAlignment" type="String" default="left" datasource="left, center, right" label="Footer Button Alignment"/>

@@ -4,6 +4,7 @@ import getCookieDataLang from "@salesforce/apex/CookieConsentService.getCookieDa
 import createCookieConsentRecords from "@salesforce/apex/CookieConsentServiceGuestHelper.createCookieConsentRecords";
 import verifyBrowserId from "@salesforce/apex/CookieConsentService.verifyBrowserId";
 import getCookiesToDelete from "@salesforce/apex/CookieConsentServiceGuestHelper.getCookiesToDelete";
+import getPrivacyPolicy from "@salesforce/apex/CookieConsentServiceGuestHelper.getPrivacyPolicy";
 
 import cookieConsentAcceptLabel from "@salesforce/label/c.CookieConsent_Accept";
 import cookieConsentDeclineLabel from "@salesforce/label/c.CookieConsent_Decline";
@@ -25,6 +26,7 @@ export default class CookieConsent extends LightningElement {
   loading = true;
   finterprintInitialized = false;
   showConnectionError;
+  @track hybridType = "footer";
 
   // Data
   cookiePreferences = [];
@@ -33,6 +35,7 @@ export default class CookieConsent extends LightningElement {
   client;
   callCount = 0;
   htmlLang = "";
+  privacyPolicy = "";
 
   // Design
   @api headingLabel = "Manage Cookies";
@@ -53,7 +56,8 @@ export default class CookieConsent extends LightningElement {
   error;
 
   connectedCallback() {
-    this.htmlLang= document.querySelector("html").lang;
+    this.htmlLang = document.querySelector("html").lang;
+
     this.checkIfInPreview();
     if (this.useRelaxedCSP && !this.preview) {
       this.getBrowserIdCookie();
@@ -72,6 +76,10 @@ export default class CookieConsent extends LightningElement {
       this.uniqueId = Math.random();
       this.verifyBrowserIdWithUniqueId();
     }
+  }
+
+  renderedCallback() {
+    console.log("getCookieSectionsAndData htmlLang = " + this.htmlLang);
   }
 
   checkIfInPreview() {
@@ -109,9 +117,9 @@ export default class CookieConsent extends LightningElement {
 
   @api
   verifyBrowserIdWithUniqueId() {
-        verifyBrowserId({ browserId: this.uniqueId })
+    verifyBrowserId({ browserId: this.uniqueId })
       .then((data) => {
-                if (data === false) {
+        if (data === false) {
           this.getCookieSectionsAndData();
         } else if (this.displayType === "page") {
           this.getCookieSectionsAndData();
@@ -122,13 +130,18 @@ export default class CookieConsent extends LightningElement {
       })
       .catch((error) => {
         this.error = error.message;
-              });
+      });
+  }
+
+  async getPrivacyPolicy() {
+    this.privacyPolicy = await getPrivacyPolicy({ policy: this.htmlLang });
   }
 
   @api
   getCookieSectionsAndData() {
-    console.log("getCookieSectionsAndData htmlLang = " + this.htmlLang);
-    getCookieDataLang({htmlLang : this.htmlLang})
+    this.getPrivacyPolicy(this.htmlLang).then((result) => {});
+
+    getCookieDataLang({ htmlLang: this.htmlLang })
       .then((data) => {
         this.cookieData = [...data];
         console.log("cookies", JSON.stringify(this.cookieData));
@@ -256,6 +269,16 @@ export default class CookieConsent extends LightningElement {
     window.open(url);
   }
 
+  hybridCookiesButtonSelected() {
+    this.hybridType = "modal";
+    console.log("hybridCookiesButtonSelected = " + this.hybridType);
+  }
+
+  hybridInformationButtonSelected() {
+    this.hybridType = "policy";
+    console.log("hybridInformationButtonSelected = " + this.hybridType);
+  }
+
   get headingStyle() {
     return (
       "font-size:1.2rem;font-weight:bold;color:" + this.cookieFooterTextColor
@@ -277,11 +300,10 @@ export default class CookieConsent extends LightningElement {
   }
 
   get footerState() {
-    return (this.displayType === "footer" || this.displayType === "footer-modal" ) && this.showCookieDialog === true;
-  }
-
-  get footerModalState() {
-    return (this.displayType === "footer-modal" ) && this.showCookieDialog === true;
+    return (
+      (this.displayType === "footer" || this.displayType === "footer-modal") &&
+      this.showCookieDialog === true
+    );
   }
 
   get modalState() {
@@ -290,6 +312,44 @@ export default class CookieConsent extends LightningElement {
 
   get pageState() {
     return this.displayType === "page";
+  }
+
+  get footerModalState() {
+    return (
+      this.displayType === "footer-modal" && this.showCookieDialog === true
+    );
+  }
+
+  get hybridState() {
+    return this.displayType === "hybrid" && this.showCookieDialog === true;
+  }
+
+  get hybridLinkState() {
+    return this.displayType === "hybrid" && this.showCookieDialog === false;
+  }
+
+  get hybridFooterState() {
+    return (
+      this.displayType === "hybrid" &&
+      this.showCookieDialog === true &&
+      this.hybridType === "footer"
+    );
+  }
+
+  get hybridModalState() {
+    return (
+      this.displayType === "hybrid" &&
+      this.showCookieDialog === true &&
+      this.hybridType === "modal"
+    );
+  }
+
+  get hybridPolicyState() {
+    return (
+      this.displayType === "hybrid" &&
+      this.showCookieDialog === true &&
+      this.hybridType === "policy"
+    );
   }
 
   get footerButtonClass() {
