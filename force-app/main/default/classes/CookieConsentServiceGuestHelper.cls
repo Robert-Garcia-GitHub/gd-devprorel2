@@ -356,4 +356,16 @@ public without sharing class CookieConsentServiceGuestHelper {
 
     return result;
   }
+
+  @auraEnabled
+  public static void deleteCookieConsentRecords(String browserId) {
+    Map<String, Object> MyParams = new Map<String, String>();
+    MyParams.put('browserId', browserId);
+    MyParams.put('userId', UserInfo.getUserId());
+    Flow.Interview.Cookie_Consent_Delete MyFlow = new Flow.Interview.Cookie_Consent_Delete(
+      MyParams
+    );
+    MyFlow.start();
+  }
+  
 }

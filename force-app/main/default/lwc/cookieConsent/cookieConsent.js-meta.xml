@@ -13,7 +13,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
-            <property name="displayType" type="String" default="footer-fixed" datasource="footer,modal,page,footer-modal,hybrid" label="Cookie Display Type"/>
+            <property name="displayType" type="String" default="footer-fixed" datasource="footer,modal,page,footer-modal,hybrid,link" label="Cookie Display Type"/>
             <property name="useRelaxedCSP" type="Boolean" label="Used Relaxed CSP" description="If selected, your component can only be used in a community that has Locker Service turned off"/>
             <property name="headingLabel" type="String" default="" label="Heading Label"/>
             <property name="instructions" type="String" default="" label="User Instructions"/>

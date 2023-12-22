@@ -10,6 +10,7 @@ import cookieConsentAcceptLabel from "@salesforce/label/c.CookieConsent_Accept";
 import cookieConsentDeclineLabel from "@salesforce/label/c.CookieConsent_Decline";
 import cookieConsentNameLabel from "@salesforce/label/c.CookieConsent_Name";
 import cookieConsentDescriptionLabel from "@salesforce/label/c.CookieConsent_Description";
+import deleteCookieConsentRecords from "@salesforce/apex/CookieConsentServiceGuestHelper.deleteCookieConsentRecords";
 
 export default class CookieConsent extends LightningElement {
   // labels
@@ -79,7 +80,7 @@ export default class CookieConsent extends LightningElement {
   }
 
   renderedCallback() {
-    console.log("getCookieSectionsAndData htmlLang = " + this.htmlLang);
+    console.log("language " + this.htmlLang);
   }
 
   checkIfInPreview() {
@@ -144,7 +145,6 @@ export default class CookieConsent extends LightningElement {
     getCookieDataLang({ htmlLang: this.htmlLang })
       .then((data) => {
         this.cookieData = [...data];
-        console.log("cookies", JSON.stringify(this.cookieData));
         this.setStartingCookiePreferences(data);
         this.loading = false;
       })
@@ -271,12 +271,10 @@ export default class CookieConsent extends LightningElement {
 
   hybridCookiesButtonSelected() {
     this.hybridType = "modal";
-    console.log("hybridCookiesButtonSelected = " + this.hybridType);
   }
 
   hybridInformationButtonSelected() {
     this.hybridType = "policy";
-    console.log("hybridInformationButtonSelected = " + this.hybridType);
   }
 
   get headingStyle() {
@@ -324,10 +322,6 @@ export default class CookieConsent extends LightningElement {
     return this.displayType === "hybrid" && this.showCookieDialog === true;
   }
 
-  get hybridLinkState() {
-    return this.displayType === "hybrid" && this.showCookieDialog === false;
-  }
-
   get hybridFooterState() {
     return (
       this.displayType === "hybrid" &&
@@ -349,6 +343,13 @@ export default class CookieConsent extends LightningElement {
       this.displayType === "hybrid" &&
       this.showCookieDialog === true &&
       this.hybridType === "policy"
+    );
+  }
+
+  get hybridFloatState() {
+    return (
+      this.displayType === "hybrid" &&
+      this.showCookieDialog === false
     );
   }
 
@@ -375,5 +376,13 @@ export default class CookieConsent extends LightningElement {
     } else {
       return "cookiecon-footer-container-relative";
     }
+  }
+
+  floatingButton() {
+    this.getCookieSectionsAndData();
+    deleteCookieConsentRecords({browserId : this.uniqueId});
+    this.cookiePreferences.length = 0;
+    this.hybridType = "modal";
+    this.showCookieDialog = true;
   }
 }

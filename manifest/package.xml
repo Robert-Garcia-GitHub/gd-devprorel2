@@ -94,6 +94,10 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
+		<members>Cookie_Consent_Delete</members>
+		<name>Flow</name>
+	</types>
+	<types>
 		<members>clientFingerprint</members>
 		<members>cookieConsent</members>
 		<name>StaticResource</name>

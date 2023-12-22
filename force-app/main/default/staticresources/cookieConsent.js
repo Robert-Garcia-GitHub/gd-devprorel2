@@ -27,3 +27,11 @@ function getFingerprint(){
   const fingerprint = client.getFingerprint();
   return fingerprint;
 }
+
+var floatingButtonContainer = document.querySelector('.cookiecon-floating-button-div');
+var scrollY = window.scrollY;
+
+window.addEventListener('scroll', function() {
+  scrollY = window.scrollY;
+  floatingButtonContainer.style.top = scrollY + window.innerHeight - 150 + 'px';
+});
