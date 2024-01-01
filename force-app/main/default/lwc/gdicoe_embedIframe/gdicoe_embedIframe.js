@@ -12,6 +12,7 @@ import embedIframeSpinner from "@salesforce/resourceUrl/gdicoe_embedIframeSpinne
 
 export default class gdicoe_embedIframe extends LightningElement {
   // properties that come from the Experience builder
+  @api iframeTitle;
   @api srcAttribute;
   @api widthAttribute;
   @api heightAttribute;
@@ -31,6 +32,7 @@ export default class gdicoe_embedIframe extends LightningElement {
   @track _divStyle = "";
   @track _spinnerUrl = "";
   @track _iframeSrc = "";
+  @track _iframeTitle = "";
 
   // properties that allow debug information to be displayed
   @track _iframeDebug = false;
@@ -73,6 +75,7 @@ export default class gdicoe_embedIframe extends LightningElement {
   connectedCallback() {
     // set the div's alignment and spinner image url
     this._divStyle = "text-align: " + this.divAlignment;
+    this._iframeTitle = this.iframeTitle;
     this._iframeDebug = this.debugIframeUrl;
     this._spinnerUrl = embedIframeSpinner;
 

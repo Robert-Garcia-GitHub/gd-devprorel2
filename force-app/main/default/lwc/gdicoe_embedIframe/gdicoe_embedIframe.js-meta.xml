@@ -10,6 +10,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
+            <property name="iframeTitle" type="String" label="Title for IFrame" default="IFrame"/>
             <property name="srcAttribute" type="String" label="Source URL" default="https://groupedeschenes.com/"/>
             <property name="widthAttribute" type="String" label="Embed width" default="600"/>
             <property name="heightAttribute" type="String" label="Embed height" default="450"/>
