@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <custom>true</custom>
-    <applicationVisibilities>
-        <application>Cookie_Consent</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
     <classAccesses>
         <apexClass>CookieConsentService</apexClass>
         <enabled>true</enabled>
@@ -153,46 +147,5 @@
         <object>Individual</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <layoutAssignments>
-        <layout>CookieConsentCategoryTranslation__c-Cookie Consent Category Translation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CookieConsentCategory__c-Cookie Consent Category Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CookieConsent__c-Cookie Consent Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CookieTranslation__c-Cookie Translation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Cookie__c-Cookie Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Individual-Individual Layout</layout>
-    </layoutAssignments>
-    <tabVisibilities>
-        <tab>CookieConsentCategoryTranslation__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CookieConsentCategory__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CookieConsent__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CookieTranslation__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Cookie__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-Individual</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
+    <custom>true</custom>
 </Profile>
