@@ -288,15 +288,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <tabSettings>
-        <tab>CookiePrivacyPolicy__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>CookieTranslation__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Cookie__c</tab>
+        <tab>CookieConsentCategoryTranslation__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
@@ -316,7 +308,7 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>CookieConsentCategoryTranslation__c</tab>
+        <tab>Cookie__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

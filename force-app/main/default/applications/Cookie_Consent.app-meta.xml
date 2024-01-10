@@ -14,8 +14,8 @@
     <tabs>standard-home</tabs>
     <tabs>Cookie__c</tabs>
     <tabs>CookieConsentCategory__c</tabs>
-    <tabs>CookieConsent__c</tabs>
     <tabs>CookiePrivacyPolicy__c</tabs>
+    <tabs>CookieConsent__c</tabs>
     <tabs>CookieTranslation__c</tabs>
     <tabs>CookieConsentCategoryTranslation__c</tabs>
     <uiType>Lightning</uiType>
