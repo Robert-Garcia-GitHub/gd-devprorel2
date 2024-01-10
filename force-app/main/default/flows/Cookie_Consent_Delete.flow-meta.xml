@@ -70,7 +70,7 @@
             </value>
         </filters>
         <filters>
-            <field>OwnerId</field>
+            <field>CreatedById</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>userId</elementReference>
@@ -88,7 +88,7 @@
             <targetReference>Get_Individual</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>browserId</name>
         <dataType>String</dataType>
