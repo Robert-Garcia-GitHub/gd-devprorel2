@@ -8,6 +8,8 @@ import getUserEmail from "@salesforce/apex/gdicoe_displayUserHelper.getUserEmail
 import getName from "@salesforce/apex/gdicoe_displayUserHelper.getName";
 import getAccountId from "@salesforce/apex/gdicoe_displayUserHelper.getAccountId";
 import getAccountExternalId from "@salesforce/apex/gdicoe_displayUserHelper.getAccountExternalId";
+import getNetworkId from "@salesforce/apex/gdicoe_displayUserHelper.getNetworkId";
+import getSiteInfo from "@salesforce/apex/gdicoe_displayUserHelper.getSiteInfo";
 
 export default class Userinfoexample extends LightningElement {
   @track displayUserId = "";
@@ -18,6 +20,9 @@ export default class Userinfoexample extends LightningElement {
   @track displayUserAccountExternalId = "";
   @track displayUserError = "none";
   @track displayUserHasOrderHistory = "unknown";
+  @track displayUserCommunityId = "";
+  @track displayUserNetworkId = "";
+  @track displayUserSiteInfo = "";
 
   @api userDataVisible;
 
@@ -35,6 +40,9 @@ export default class Userinfoexample extends LightningElement {
     this.displayUserUsername = await getUserName();
     this.displayUserEmail = await getUserEmail();
     this.displayUserAccountExternalId = await getAccountExternalId();
+    this.displayUserCommunityId = communityId;
+    this.displayUserNetworkId = await getNetworkId();
+    this.displayUserSiteInfo = await getSiteInfo();
   }
 
   async checkIfOrders() {

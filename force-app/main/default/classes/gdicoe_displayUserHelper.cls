@@ -50,4 +50,17 @@ public with sharing class gdicoe_displayUserHelper {
         }
         return result;
     }
+
+    @AuraEnabled
+    public static string getNetworkId(){
+        return Network.getNetworkId();
+    }
+
+    @AuraEnabled
+    public static string getSiteInfo(){
+        String siteId = Site.getSiteId();
+        Site site = [SELECT GuestUserId, Name, Subdomain, UrlPathPrefix FROM Site WHERE id = : siteId];
+        String SiteInfo = site.Name + ':' + site.UrlPathPrefix.split('/')[0];
+        return SiteInfo;
+    }    
 }
