@@ -1,0 +1,25 @@
+.gdicoe_jobpostingdetail_name {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.gdicoe_jobpostingdetail_location {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: normal;
+}
+
+.gdicoe_jobpostingdetail_description {
+    padding-top: 3em;
+}
+
+.gdicoe_jobpostingdetail_button {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    text-align: center;
+}
+
+.gdicoe_jobpostingdetail_no_text_decoration {
+    text-decoration: none !important;
+}

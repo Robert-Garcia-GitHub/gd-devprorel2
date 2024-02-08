@@ -1,0 +1,33 @@
+<template>
+  <template if:true={_dataLoaded}>
+    <template if:true={_dataMissing}> 
+      {_missingCaption}
+    </template>
+    <template if:false={_dataMissing}>
+      <template if:false={_dataActive}>
+        {_inactiveCaption}
+      </template>
+      <template if:true={_dataActive}>
+        <div style={_displayWidth}>
+          <div class="gdicoe_jobpostingdetail_name">{_jobName}</div>
+          <div class="gdicoe_jobpostingdetail_location">{_jobLocation}</div>
+          <div class="gdicoe_jobpostingdetail_description">
+            <lightning-formatted-rich-text
+              value={_jobDescription}
+            ></lightning-formatted-rich-text>
+          </div>
+          <div class="gdicoe_jobpostingdetail_button">
+            <div class="gdicoe_jobpostingdetail_no_text_decoration">
+              <a class="gdicoe_jobpostingdetail_no_text_decoration" style={_anchorStyle}
+                href={_buttonTarget}>
+                  <span style={_spanStyle} onmouseover={_mouseOver} onmouseout={_mouseOut}>
+                    {_buttonCaption}
+                  </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </template>
+    </template>
+  </template>
+</template>
