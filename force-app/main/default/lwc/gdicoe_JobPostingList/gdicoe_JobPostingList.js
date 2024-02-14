@@ -1,8 +1,9 @@
 import { LightningElement, wire, api, track } from "lwc";
-import getJobPostingList from "@salesforce/apex/GDICOE_JobPostingDA.getJobPostingList";
+import getJobPostings from "@salesforce/apex/GDICOE_JobPostingDA.getJobPostings";
 
 export default class Gdicoe_JobPostingList extends LightningElement {
   @api storeName;
+  @api displayLanguage;
   @api displayWidth;
   @api buttonCaption;
   @api buttonStyle;
@@ -25,7 +26,7 @@ export default class Gdicoe_JobPostingList extends LightningElement {
   _overStyle = "";
   _outStyle = "";
 
-  @wire(getJobPostingList, { storeName: "$storeName" }) wiredJobPostings;
+  @wire(getJobPostings, { storeName: "$storeName", displayLanguage: "$displayLanguage"}) wiredJobPostings;
 
   connectedCallback() {
     this._displayWidth = "width: " + this.displayWidth + "; margin: auto;";

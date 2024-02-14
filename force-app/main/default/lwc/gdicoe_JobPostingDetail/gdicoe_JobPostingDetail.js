@@ -1,8 +1,8 @@
 import { LightningElement, wire, api, track } from "lwc";
-import getJobPostingDetail from "@salesforce/apex/GDICOE_JobPostingDA.getJobPostingDetail";
+import getJobDetails from "@salesforce/apex/GDICOE_JobPostingDA.getJobDetails";
 
 export default class Gdicoe_JobPostingDetail extends LightningElement {
-  @api storeName;
+  @api displayLanguage;
   @api displayWidth;
   @api buttonCaption;
   @api buttonStyle;
@@ -18,6 +18,7 @@ export default class Gdicoe_JobPostingDetail extends LightningElement {
   @api missingCaption;
   @api buttonTarget;
 
+  _htmlLang = "";
   _displayWidth = "";
   _buttonCaption = "";
   _anchorStyle = "";
@@ -71,19 +72,27 @@ export default class Gdicoe_JobPostingDetail extends LightningElement {
   }
 
   async getJobData() {
+    var data = "";
     var url = new URL(document.URL);
     const params = url.searchParams;
     this._urlParam = params.get("empl01");
 
-    this._jobData = await getJobPostingDetail({ jobPostingId: this._urlParam });
+    this._jobData = await getJobDetails({
+      jobPostingId: this._urlParam,
+      displayLanguage: this.displayLanguage
+    });
+
+    console.log('Data=' + this._jobData);
 
     if (this._jobData !== "") {
-      var data = this._jobData.split("</>");
+      data = this._jobData.split("</>");
       this._jobId = data[0];
       this._jobName = data[1];
       this._jobLocation = data[2];
       this._jobDescription = data[3];
       this._jobActive = data[4];
+
+      document.title = this._jobName + ' - ' + this._jobLocation;
 
       this._dataActive = this._jobActive === "true" ? true : false;
       this._dataMissing = false;

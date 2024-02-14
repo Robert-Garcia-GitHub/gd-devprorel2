@@ -11,6 +11,7 @@
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
             <property name="storeName" type="String" label="Store name" default="Deschênes Montréal"/>
+            <property name="displayLanguage" type="String" label="Display language" datasource="en,fr" default="fr"/>
             <property name="displayWidth" type="String" label="Display width" default="80%"/> 
             <property name="buttonCaption" type="String" label="Button caption" default="Details"/>
             <property name="fontSize" type="String" label="Font size (use 1em for default size)" default="1em"/>

@@ -5,7 +5,9 @@
     </template>
     <template if:false={_dataMissing}>
       <template if:false={_dataActive}>
-        {_inactiveCaption}
+        <div class="gdicoe_jobpostingdetail_name">{_jobName}</div>
+        <div class="gdicoe_jobpostingdetail_location">{_jobLocation}</div>
+      {_inactiveCaption}
       </template>
       <template if:true={_dataActive}>
         <div style={_displayWidth}>
