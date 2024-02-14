@@ -28,7 +28,7 @@
             <td class="gdicoe_jobpostinglist_button">
                 <div class="gdicoe_jobpostinglist_no_text_decoration">
                   <a class="gdicoe_jobpostinglist_no_text_decoration" style={_anchorStyle}
-                    data-id={jobPosting.GDICOE_Job_Posting__r.Id} onclick={_handleAnchor}>
+                    data-id={jobPosting.GDICOE_Job_Posting__r.Id} data-name={jobPosting.Name} data-location={jobPosting.Location__c} onclick={_handleAnchor}>
                       <span style={_spanStyle} onmouseover={_mouseOver} onmouseout={_mouseOut}>
                         
                         {_buttonCaption}

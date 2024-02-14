@@ -75,7 +75,7 @@ export default class Gdicoe_JobPostingDetail extends LightningElement {
     var data = "";
     var url = new URL(document.URL);
     const params = url.searchParams;
-    this._urlParam = params.get("empl01");
+    this._urlParam = params.get("_id");
 
     this._jobData = await getJobDetails({
       jobPostingId: this._urlParam,

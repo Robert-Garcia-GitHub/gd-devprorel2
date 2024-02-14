@@ -26,6 +26,8 @@ export default class Gdicoe_JobPostingList extends LightningElement {
   _overStyle = "";
   _outStyle = "";
 
+  testJobPostings = null;
+
   @wire(getJobPostings, { storeName: "$storeName", displayLanguage: "$displayLanguage"}) wiredJobPostings;
 
   connectedCallback() {
@@ -52,6 +54,14 @@ export default class Gdicoe_JobPostingList extends LightningElement {
     this._spanStyle = this._outStyle;
 
     this._anchorHref = this.detailPage;
+
+    this.getTestJobPostings().then(result => {});
+    console.log("testJobPostings=" + this.testJobPostings);
+  }
+
+  async getTestJobPostings() {
+    this.testJobPostings = await getJobPostings({ storeName: this.storeName, displayLanguage: this.displayLanguage});
+    console.log("testJobPostings=" + this.testJobPostings);
   }
 
   _mouseOut(evt) {
@@ -62,7 +72,15 @@ export default class Gdicoe_JobPostingList extends LightningElement {
     evt.target.setAttribute("style", this._overStyle);
   }
 
+  convertToUrlFormat(value) {
+    return value.toLowerCase().replace(/\s/g,'-');
+
+  }
   _handleAnchor(evt) {
-    window.location.href = this.detailPage + "?empl01=" + evt.currentTarget.dataset.id;
+    let href = this.detailPage;
+    href += "?_ref="+ this.convertToUrlFormat(evt.currentTarget.dataset.name);
+    href += "--" + this.convertToUrlFormat(evt.currentTarget.dataset.location);
+    href += "&_id="+ evt.currentTarget.dataset.id;
+    window.location.href = href;
   }
 }
