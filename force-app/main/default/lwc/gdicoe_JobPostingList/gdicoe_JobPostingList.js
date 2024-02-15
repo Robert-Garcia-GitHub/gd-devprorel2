@@ -54,14 +54,6 @@ export default class Gdicoe_JobPostingList extends LightningElement {
     this._spanStyle = this._outStyle;
 
     this._anchorHref = this.detailPage;
-
-    this.getTestJobPostings().then(result => {});
-    console.log("testJobPostings=" + this.testJobPostings);
-  }
-
-  async getTestJobPostings() {
-    this.testJobPostings = await getJobPostings({ storeName: this.storeName, displayLanguage: this.displayLanguage});
-    console.log("testJobPostings=" + this.testJobPostings);
   }
 
   _mouseOut(evt) {
