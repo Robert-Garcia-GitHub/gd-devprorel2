@@ -23,7 +23,7 @@
             <property name="textColor" type="Color" label="Text color" default="#FFFFFF"/>
             <property name="inactiveCaption" type="String" label="Message to display if job is inactive" default="Sorry, that job posting is no longer active"/>
             <property name="missingCaption" type="String" label="Message to display if job is missing" default="Sorry, that job posting does not exist"/>
-            <property name="buttonTarget" type="String" label="Button target" default=""/>            
+            <property name="buttonTarget" type="String" label="Button URL target" default=""/>            
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

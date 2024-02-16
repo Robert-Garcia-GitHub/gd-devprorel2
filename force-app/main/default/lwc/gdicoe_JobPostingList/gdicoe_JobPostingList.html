@@ -1,43 +1,45 @@
-<!--
 <template>
   <div style={_displayWidth}>
-    <table>
-      <template for:each={wiredJobPostings.data} for:item="jobPosting">
-        <tr key={jobPosting.Id}>
-          <td>
-            {jobPosting.Name}
-            <br />
-            {jobPosting.Location__c}
-          </td>
-          <td>button</td>
-        </tr>
+    <table
+      class="slds-table slds-max-medium-table_stacked-horizontal slds-table_bordered"
+    >
+      <template if:true={_isLoaded}>
+        <template if:false={_hasData}>
+          {_noneCaption}
+        </template>
+        <template if:true={_hasData}>
+          <template for:each={_jobPostings} for:item="jobPosting">
+            <tr key={jobPosting.Id} class="gdicoe_jobpostinglist_row">
+              <td class="gdicoe_jobpostinglist_data">
+                <div class="gdicoe_jobpostinglist_name">{jobPosting.Name}</div>
+                <div class="gdicoe_jobpostinglist_location">
+                  {jobPosting.Location__c}
+                </div>
+              </td>
+              <td class="gdicoe_jobpostinglist_button">
+                <div class="gdicoe_jobpostinglist_no_text_decoration">
+                  <a
+                    class="gdicoe_jobpostinglist_no_text_decoration"
+                    style={_anchorStyle}
+                    data-id={jobPosting.GDICOE_Job_Posting__r.Id}
+                    data-name={jobPosting.Name}
+                    data-location={jobPosting.Location__c}
+                    onclick={_handleAnchor}
+                  >
+                    <span
+                      style={_spanStyle}
+                      onmouseover={_mouseOver}
+                      onmouseout={_mouseOut}
+                    >
+                      {_buttonCaption}
+                    </span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </template>
+        </template>
       </template>
     </table>
   </div>
-</template>
--->
-<template>
-    <div style={_displayWidth}>
-      <table class="slds-table slds-max-medium-table_stacked-horizontal slds-table_bordered">
-        <template for:each={wiredJobPostings.data} for:item="jobPosting">
-          <tr key={jobPosting.Id} class="gdicoe_jobpostinglist_row">
-            <td class="gdicoe_jobpostinglist_data">
-              <div class="gdicoe_jobpostinglist_name">{jobPosting.Name}</div>
-              <div class="gdicoe_jobpostinglist_location">{jobPosting.Location__c}</div>
-            </td>
-            <td class="gdicoe_jobpostinglist_button">
-                <div class="gdicoe_jobpostinglist_no_text_decoration">
-                  <a class="gdicoe_jobpostinglist_no_text_decoration" style={_anchorStyle}
-                    data-id={jobPosting.GDICOE_Job_Posting__r.Id} data-name={jobPosting.Name} data-location={jobPosting.Location__c} onclick={_handleAnchor}>
-                      <span style={_spanStyle} onmouseover={_mouseOver} onmouseout={_mouseOut}>
-                        
-                        {_buttonCaption}
-                      </span>
-                  </a>
-                </div>
-            </td>
-          </tr>
-        </template>
-      </table>
-    </div>
 </template>

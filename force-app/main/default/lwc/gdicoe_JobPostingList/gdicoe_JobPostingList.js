@@ -16,6 +16,7 @@ export default class Gdicoe_JobPostingList extends LightningElement {
   @api hoverColor;
   @api textColor;
   @api detailPage;
+  @api noneCaption;
 
   _displayWidth = "";
   _buttonCaption = "";
@@ -25,10 +26,27 @@ export default class Gdicoe_JobPostingList extends LightningElement {
   _buttonStyle = "";
   _overStyle = "";
   _outStyle = "";
+  _noneCaption = "";
 
-  testJobPostings = null;
+  @track _isLoaded = false;
+  @track _hasData = false;
+  @track _jobPostings = null;
 
-  @wire(getJobPostings, { storeName: "$storeName", displayLanguage: "$displayLanguage"}) wiredJobPostings;
+  @wire(getJobPostings, {
+    storeName: "$storeName",
+    displayLanguage: "$displayLanguage"
+  })
+  wiredJobPostings({error, data}) {
+    if ( data ) {
+      this._jobPostings = data;
+      this._hasData = ( data.length > 0 );
+      this._isLoaded = true;
+    } else if ( error ) {
+      this._jobPostings = null;
+      this._hasData  = false;
+      this._isLoaded = true;
+    }
+  }
 
   connectedCallback() {
     this._displayWidth = "width: " + this.displayWidth + "; margin: auto;";
@@ -54,6 +72,8 @@ export default class Gdicoe_JobPostingList extends LightningElement {
     this._spanStyle = this._outStyle;
 
     this._anchorHref = this.detailPage;
+
+    this._noneCaption = this.noneCaption;
   }
 
   _mouseOut(evt) {
@@ -65,14 +85,13 @@ export default class Gdicoe_JobPostingList extends LightningElement {
   }
 
   convertToUrlFormat(value) {
-    return value.toLowerCase().replace(/\s/g,'-');
-
+    return value.toLowerCase().replace(/\s/g, "-");
   }
   _handleAnchor(evt) {
     let href = this.detailPage;
-    href += "?_ref="+ this.convertToUrlFormat(evt.currentTarget.dataset.name);
+    href += "?_ref=" + this.convertToUrlFormat(evt.currentTarget.dataset.name);
     href += "--" + this.convertToUrlFormat(evt.currentTarget.dataset.location);
-    href += "&_id="+ evt.currentTarget.dataset.id;
+    href += "&_id=" + evt.currentTarget.dataset.id;
     window.location.href = href;
   }
 }

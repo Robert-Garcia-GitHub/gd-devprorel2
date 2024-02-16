@@ -40,6 +40,7 @@ public with sharing class GDICOE_JobPostingDA {
           WHERE
             GDICOE_Job_Posting__c.GDICOE_Job_List__r.Id = :joblist.get(0).Id
             AND Active__c = TRUE
+          ORDER BY Name
         ];
       } else {
         result = new List<GDICOE_Job_Posting__c>();
@@ -65,7 +66,8 @@ public with sharing class GDICOE_JobPostingDA {
           WHERE
             GDICOE_Job_Posting__r.Id = :jobposting.Id
             AND Language__c = :language
-          LIMIT 1
+            ORDER BY Name
+            LIMIT 1
         ];
 
         if (jobdetail.isEmpty()) {
@@ -73,6 +75,7 @@ public with sharing class GDICOE_JobPostingDA {
             SELECT Id, GDICOE_Job_Posting__r.Id, Name, Location__c
             FROM GDICOE_Job_Detail__c
             WHERE GDICOE_Job_Posting__r.Id = :jobposting.Id
+            ORDER BY Name
             LIMIT 1
           ];
         }

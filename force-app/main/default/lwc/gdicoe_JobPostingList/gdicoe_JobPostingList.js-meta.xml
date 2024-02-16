@@ -22,7 +22,8 @@
             <property name="backgroundColor" type="Color" label="Background color" default="#007F7F"/>
             <property name="hoverColor" type="Color" label="Hover color" default="#00CFCF"/>
             <property name="textColor" type="Color" label="Text color" default="#FFFFFF"/>
-            <property name="detailPage" type="String" label="Page to use for detail" default=""/>
+            <property name="detailPage" type="String" label="Page to use for posting detail" default=""/>
+            <property name="noneCaption" type="String" label="Message to display if no postings available" default=""/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

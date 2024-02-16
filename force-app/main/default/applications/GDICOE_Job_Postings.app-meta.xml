@@ -13,7 +13,6 @@
     <navType>Standard</navType>
     <tabs>GDICOE_Job_List__c</tabs>
     <tabs>GDICOE_Job_Posting__c</tabs>
-    <tabs>GDICOE_Job_Detail__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>GDICOE_Job_Postings_UtilityBar</utilityBar>
 </CustomApplication>
