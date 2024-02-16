@@ -40,50 +40,46 @@ public with sharing class GDICOE_JobPostingDA_Test {
   static void test_getJobDetailRecord() {
     List<GDICOE_Job_Detail__c> value;
 
-    value = GDICOE_JobPostingDA.getJobDetailRecord(null,null);
-    System.assertEquals(value.isEmpty(), true,'GDICOE_JobPostingDA_Test test_getJobDetailRecord #1/4');
-
     value = GDICOE_JobPostingDA.getJobDetailRecord(null,'');
-    System.assertEquals(value.isEmpty(), true,'GDICOE_JobPostingDA_Test test_getJobDetailRecord #2/4');
-
-    value = GDICOE_JobPostingDA.getJobDetailRecord('',null);
-    System.assertEquals(value.isEmpty(), true,'GDICOE_JobPostingDA_Test test_getJobDetailRecord #3/4');
+    System.assertEquals(value.isEmpty(), true);
 
     value = GDICOE_JobPostingDA.getJobDetailRecord('','');
-    System.assertEquals(value.isEmpty(), true,'GDICOE_JobPostingDA_Test test_getJobDetailRecord #4/4');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobDetailRecord(null,'en');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobDetailRecord('','en');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobDetailRecord(null,'fr');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobDetailRecord('','fr');
+    System.assertEquals(value.isEmpty(), true);
   }
 
   @IsTest
   static void test_getJobPostings() {
     List<GDICOE_Job_Detail__c> value;
 
-    value = GDICOE_JobPostingDA.getJobPostings(null,null);
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobPostings #1/4');
-
     value = GDICOE_JobPostingDA.getJobPostings(null,'');
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobPostings #2/4');
-
-    value = GDICOE_JobPostingDA.getJobPostings('',null);
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobPostings #3/4');
+    System.assertEquals(value.isEmpty(), true);
 
     value = GDICOE_JobPostingDA.getJobPostings('','');
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobPostings #4/4');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobPostings(null,'en');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobPostings('','en');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobPostings(null,'fr');
+    System.assertEquals(value.isEmpty(), true);
+
+    value = GDICOE_JobPostingDA.getJobPostings('','fr');
+    System.assertEquals(value.isEmpty(), true);
   }
 
-  @IsTest
-  static void test_getJobDetails() {
-    List<GDICOE_Job_Detail__c> value;
-
-    value = GDICOE_JobPostingDA.getJobDetails(null,null);
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobDetails #1/4');
-
-    value = GDICOE_JobPostingDA.getJobDetails(null,'');
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobDetails #2/4');
-
-    value = GDICOE_JobPostingDA.getJobDetails('',null);
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobDetails #3/4');
-
-    value = GDICOE_JobPostingDA.getJobDetails('','');
-    System.assertEquals(value.isEmpty(), true, 'GDICOE_JobPostingDA_Test test_getJobDetails #4/4');
-  }
 }
