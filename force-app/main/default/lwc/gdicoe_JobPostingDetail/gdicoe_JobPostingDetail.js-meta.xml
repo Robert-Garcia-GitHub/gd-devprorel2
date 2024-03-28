@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>GDICOE Job Posting Detail</masterLabel>    
+    <description>Displays the details of a job posting</description>    
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="displayLanguage" type="String" label="Display language" datasource="en,fr" default="fr"/>
+            <property name="noneCaption" type="String" label="Message to display if posting is not available" default=""/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

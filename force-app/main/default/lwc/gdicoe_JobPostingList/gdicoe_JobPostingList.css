@@ -1,0 +1,24 @@
+.gdicoe_jobpostinglist_row {
+    padding-bottom: 2em;
+}
+
+.gdicoe_jobpostinglist_data {
+    text-align: left;
+}
+
+.gdicoe_jobpostinglist_name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.gdicoe_jobpostinglist_location {
+    font-weight: normal;
+}
+
+.gdicoe_jobpostinglist_button {
+    text-align: right;
+}
+
+.gdicoe_jobpostinglist_no_text_decoration {
+    text-decoration: none !important;
+}

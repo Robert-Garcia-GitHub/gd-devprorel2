@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>GDICOE Job Posting List</masterLabel>    
+    <description>Displays a list of job postings</description>    
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="storeName" type="String" label="Store name" default="Deschênes Montréal"/>
+            <property name="displayLanguage" type="String" label="Display language" datasource="en,fr" default="fr"/>
+            <property name="displayWidth" type="String" label="Display width" default="80%"/> 
+            <property name="buttonCaption" type="String" label="Button caption" default="Details"/>
+            <property name="fontSize" type="String" label="Font size (use 1em for default size)" default="1em"/>
+            <property name="fontWeight" type="String" label="Font weight" datasource="normal,bold" default="normal"/>
+            <property name="verticalPadding" type="Integer" min="0" max="100" label="Padding above and below button (0 - 100)" default="15"/>
+            <property name="horizontalPadding" type="Integer" min="0" max="100" label="Padding left and right of button (0 - 100)" default="15"/>
+            <property name="cornerRadius" type="Integer" min="0" max="50" label="Radius for button corners (0 - 50)" default="25"/>
+            <property name="backgroundColor" type="Color" label="Background color" default="#007F7F"/>
+            <property name="hoverColor" type="Color" label="Hover color" default="#00CFCF"/>
+            <property name="textColor" type="Color" label="Text color" default="#FFFFFF"/>
+            <property name="detailPage" type="String" label="Page to use for posting detail" default=""/>
+            <property name="noneCaption" type="String" label="Message to display if no postings available" default=""/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

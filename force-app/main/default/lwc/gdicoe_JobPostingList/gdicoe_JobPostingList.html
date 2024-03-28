@@ -1,0 +1,45 @@
+<template>
+  <div style={_displayWidth}>
+    <table
+      class="slds-table slds-max-medium-table_stacked-horizontal slds-table_bordered"
+    >
+      <template if:true={_isLoaded}>
+        <template if:false={_hasData}>
+          {_noneCaption}
+        </template>
+        <template if:true={_hasData}>
+          <template for:each={_jobPostingListData} for:item="jobposting">
+            <tr key={jobposting.Id} class="gdicoe_jobpostinglist_row">
+              <td class="gdicoe_jobpostinglist_data">
+                <div class="gdicoe_jobpostinglist_name">{jobposting.Name}</div>
+                <div class="gdicoe_jobpostinglist_location">
+                  {jobposting.Location__c}
+                </div>
+              </td>
+              <td class="gdicoe_jobpostinglist_button">
+                <div class="gdicoe_jobpostinglist_no_text_decoration">
+                  <a
+                    class="gdicoe_jobpostinglist_no_text_decoration"
+                    style={_anchorStyle}
+                    data-id={jobposting.GDICOE_Job_Posting__r.Id}
+                    data-name={jobposting.Name}
+                    data-location={jobposting.Location__c}
+                    onclick={_handleAnchor}
+                  >
+                    <span
+                      style={_spanStyle}
+                      onmouseover={_mouseOver}
+                      onmouseout={_mouseOut}
+                    >
+                      {_buttonCaption}
+                    </span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </template>
+        </template>
+      </template>
+    </table>
+  </div>
+</template>
